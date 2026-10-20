@@ -277,7 +277,11 @@ table.list tr.pin td{background:color-mix(in srgb,var(--blue) 6%,transparent)}
 
 .util a{white-space:nowrap}
 @media (max-width:480px){.util .wrap{gap:12px;font-size:12px;padding:0 14px}}
-.avatar{overflow:hidden}.avatar img{width:100%;height:100%;object-fit:cover}
+.avatar{overflow:hidden}.avatar img{width:100%;height:100%;object-fit:cover;object-position:center 22%}
+.avatar.has-photo{width:92px;height:92px;padding:0;border:2px solid var(--line);cursor:zoom-in;transition:transform .15s,border-color .15s}
+.avatar.has-photo:hover{transform:scale(1.05);border-color:var(--blue)}
+.avatar.has-photo:focus-visible{outline:2px solid var(--blue);outline-offset:3px}
+#lbImg{max-width:min(90vw,900px);height:auto;border-radius:6px}
 .member a{color:var(--blue)}
 footer{background:var(--foot);color:var(--foot-ink);font-size:13.5px;padding:36px 0 44px}
 footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px}

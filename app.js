@@ -29,7 +29,7 @@ function renderData(){
   proj(curFilter);
   $("#pubBody").innerHTML=[...SD.publications].sort((a,b)=>String(b.year||"").localeCompare(String(a.year||""))).map(p=>{const a=pick(p,"authors"),v=pick(p,"venue");return `<tr><td class="d">${esc(p.year||"—")}</td><td>${esc(pick(p,"title"))}</td><td>${hl(a)}${a&&v?" · ":""}${esc(v)}</td></tr>`}).join("");
   const groups=GROUP_ORDER.map(g=>[g,SD.members.filter(m=>m.group===g)]).filter(([,l])=>l.length);
-  $("#memberGroups").innerHTML=groups.map(([g,list])=>`<div class="mgroup"><h3>${esc(UI[L].groups[g])}</h3><div class="members">${list.map(m=>{const n=pick(m,"name"),ph=asset(m.photo);return `<div class="member"><div class="avatar">${ph?`<img src="${esc(ph)}" alt="">`:esc((m.name||"")[0]||"")}</div><div><b>${esc(n)}</b><span>${esc(pick(m,"role"))}</span>${pick(m,"note")?`<span>${esc(pick(m,"note"))}</span>`:''}${m.email?`<span><a href="mailto:${esc(m.email)}">${esc(m.email)}</a></span>`:''}</div></div>`}).join("")}</div></div>`).join("");
+  $("#memberGroups").innerHTML=groups.map(([g,list])=>`<div class="mgroup"><h3>${esc(UI[L].groups[g])}</h3><div class="members">${list.map(m=>{const n=pick(m,"name"),ph=asset(m.photo);return `<div class="member">${ph?`<button type="button" class="avatar has-photo" data-src="${esc(ph)}" data-name="${esc(n)}" aria-label="${esc(n)} ${L==="en"?"photo":"사진 크게 보기"}"><img src="${esc(ph)}" alt=""></button>`:`<div class="avatar">${esc((m.name||"")[0]||"")}</div>`}<div><b>${esc(n)}</b><span>${esc(pick(m,"role"))}</span>${pick(m,"note")?`<span>${esc(pick(m,"note"))}</span>`:''}${m.email?`<span><a href="mailto:${esc(m.email)}">${esc(m.email)}</a></span>`:''}</div></div>`}).join("")}</div></div>`).join("");
   $("#pressLinks").innerHTML=SD.press.map(p=>`<a href="${esc(p.url)}" target="_blank" rel="noopener"><small>${esc(pick(p,"source"))}</small><b>${esc(pick(p,"title"))}</b><span>${UI[L].go}</span></a>`).join("");
 }
 document.querySelectorAll('[role="tab"]').forEach(b=>b.addEventListener("click",()=>{
@@ -51,6 +51,7 @@ const lb=$("#lightbox");
 function openLB(src,cap){$("#lbImg").src=src;$("#lbImg").alt=cap;$("#lbCap").textContent=cap;lb.showModal()}
 document.querySelectorAll("#gallery button").forEach(b=>b.addEventListener("click",()=>openLB(b.querySelector("img").src,L==="en"?b.dataset.capEn:b.dataset.cap)));
 $("#lbClose").addEventListener("click",()=>lb.close());
+$("#memberGroups").addEventListener("click",e=>{const b=e.target.closest(".has-photo");if(b)openLB(b.dataset.src,b.dataset.name)});
 lb.addEventListener("click",e=>{if(e.target===lb)lb.close()});
 
 /* ---------- 게시판 ---------- */
