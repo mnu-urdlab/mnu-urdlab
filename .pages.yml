@@ -1,0 +1,221 @@
+# Pages CMS 관리 화면 설정 (https://app.pagescms.org)
+# 이 파일은 관리 화면의 메뉴와 입력 칸을 정의합니다. 내용 수정은 관리 화면에서 하세요.
+
+media:
+  - name: images
+    label: 사진
+    input: images
+    output: /images
+    categories: [image]
+    rename: safe
+  - name: files
+    label: 첨부파일
+    input: files
+    output: /files
+    rename: safe
+
+settings:
+  commit:
+    identity: user
+
+content:
+  # ───────────── 게시판 ─────────────
+  - name: board
+    label: 게시판
+    type: group
+    items:
+      - name: notices
+        label: 공지사항
+        type: file
+        path: data/notices.json
+        format: json
+        list: true
+        fields:
+          - { name: id, type: uuid, hidden: true }
+          - name: cat
+            label: 분류
+            type: select
+            required: true
+            options: { values: [공지, 소식] }
+          - { name: pin, label: 상단 고정, type: boolean, description: "켜면 목록 맨 위에 '공지'로 고정됩니다." }
+          - { name: date, label: 작성일, type: string, required: true, description: "예: 2026.10.15" }
+          - { name: title, label: 제목, type: string, required: true }
+          - { name: body, label: 본문, type: text, description: "빈 줄로 문단을 나눕니다. 비워두고 '관련 링크'만 넣으면 제목을 눌렀을 때 바로 링크로 이동합니다." }
+          - { name: link, label: 관련 링크, type: string, description: "예: 기사 주소 (선택)" }
+          - name: files
+            label: 첨부파일
+            type: file
+            options: { media: files, multiple: { max: 10 } }
+          - { name: title_en, label: "제목 (영어, 선택)", type: string }
+          - { name: body_en, label: "본문 (영어, 선택)", type: text }
+
+      - name: events
+        label: 연구실 행사 (사진)
+        type: file
+        path: data/events.json
+        format: json
+        list: true
+        fields:
+          - { name: id, type: uuid, hidden: true }
+          - { name: date, label: 날짜, type: string, required: true, description: "예: 2026.10.15" }
+          - { name: title, label: 행사명, type: string, required: true, description: "예: 목포 원도심 답사" }
+          - { name: place, label: 장소, type: string }
+          - { name: desc, label: 설명, type: text }
+          - name: photos
+            label: 사진
+            type: image
+            description: "첫 번째 사진이 대표 사진이 됩니다. 사진은 가로 1600px 이하로 줄여서 올리면 빨라요."
+            options: { media: images, multiple: { max: 40 } }
+          - { name: title_en, label: "행사명 (영어, 선택)", type: string }
+          - { name: place_en, label: "장소 (영어, 선택)", type: string }
+          - { name: desc_en, label: "설명 (영어, 선택)", type: text }
+
+      - name: resources
+        label: 자료실
+        type: file
+        path: data/resources.json
+        format: json
+        list: true
+        fields:
+          - { name: id, type: uuid, hidden: true }
+          - name: cat
+            label: 분류
+            type: select
+            required: true
+            options: { values: [양식, 발표자료, 참고자료, 연구자료, 링크] }
+          - { name: date, label: 등록일, type: string, required: true, description: "예: 2026.10.15" }
+          - { name: title, label: 자료명, type: string, required: true }
+          - { name: desc, label: 설명, type: string }
+          - name: file
+            label: 파일
+            type: file
+            description: "파일을 올리거나, 아래 '외부 링크'를 넣으세요."
+            options: { media: files }
+          - { name: url, label: 외부 링크, type: string }
+          - { name: title_en, label: "자료명 (영어, 선택)", type: string }
+          - { name: desc_en, label: "설명 (영어, 선택)", type: string }
+
+  # ───────────── 연구 ─────────────
+  - name: research
+    label: 연구
+    type: group
+    items:
+      - name: publications
+        label: 논문·저서
+        type: file
+        path: data/publications.json
+        format: json
+        list: true
+        fields:
+          - { name: year, label: 연도, type: string, description: "예: 2026" }
+          - { name: title, label: 제목, type: string, required: true }
+          - { name: authors, label: 저자, type: string, description: "예: 홍석호, 김세용" }
+          - { name: venue, label: "학술지·발행처", type: string, description: "예: 대한건축학회지 30(9), 119–127" }
+          - { name: title_en, label: "제목 (영어, 선택)", type: string }
+          - { name: authors_en, label: "저자 (영어, 선택)", type: string }
+          - { name: venue_en, label: "학술지 (영어, 선택)", type: string }
+
+      - name: projects
+        label: 연구실적 (과제·용역)
+        type: file
+        path: data/projects.json
+        format: json
+        list: true
+        fields:
+          - { name: period, label: 기간, type: string, description: "예: 2026.03 – 2026.12" }
+          - { name: title, label: 과제명, type: string, required: true }
+          - name: field
+            label: 분야
+            type: select
+            required: true
+            options:
+              values:
+                - { name: dev, label: 도시개발·정비 }
+                - { name: reg, label: 지역·문화 }
+                - { name: des, label: 설계·디자인 }
+          - { name: title_en, label: "과제명 (영어, 선택)", type: string }
+
+  # ───────────── 사람 ─────────────
+  - name: people
+    label: 구성원
+    type: group
+    items:
+      - name: members
+        label: 구성원
+        type: file
+        path: data/members.json
+        format: json
+        list: true
+        fields:
+          - { name: name, label: 이름, type: string, required: true }
+          - name: group
+            label: 구분
+            type: select
+            required: true
+            options:
+              values:
+                - { name: phd_researcher, label: 박사 연구원 }
+                - { name: researcher, label: 연구원 }
+                - { name: phd, label: 박사과정 }
+                - { name: ms, label: 석사과정 }
+                - { name: ug, label: 학부연구생 }
+                - { name: alumni, label: 졸업생 }
+          - { name: role, label: 과정·직위, type: string, description: "예: 석사과정, 연구원" }
+          - { name: note, label: "연구분야·메모", type: string }
+          - { name: email, label: 이메일, type: string }
+          - name: photo
+            label: 사진
+            type: image
+            options: { media: images }
+          - { name: name_en, label: "이름 (영어, 선택)", type: string }
+          - { name: role_en, label: "과정 (영어, 선택)", type: string }
+          - { name: note_en, label: "연구분야 (영어, 선택)", type: string }
+
+      - name: professor
+        label: 지도교수 약력
+        type: file
+        path: data/professor.json
+        format: json
+        operations: { delete: false }
+        fields:
+          - { name: bio, label: 소개글, type: text }
+          - name: education
+            label: 학력
+            type: object
+            list: { collapsible: { collapsed: true, summary: "{period} {text}" } }
+            fields:
+              - { name: period, label: 기간, type: string }
+              - { name: text, label: 내용, type: string }
+              - { name: text_en, label: "내용 (영어, 선택)", type: string }
+          - name: career
+            label: 경력
+            type: object
+            list: { collapsible: { collapsed: true, summary: "{period} {text}" } }
+            fields:
+              - { name: period, label: 기간, type: string }
+              - { name: text, label: 내용, type: string }
+              - { name: current, label: 현재 재직, type: boolean }
+              - { name: text_en, label: "내용 (영어, 선택)", type: string }
+          - name: awards
+            label: 수상·활동
+            type: object
+            list: { collapsible: { collapsed: true, summary: "{period} {text}" } }
+            fields:
+              - { name: period, label: 연도, type: string }
+              - { name: text, label: 내용, type: string }
+              - { name: text_en, label: "내용 (영어, 선택)", type: string }
+          - { name: bio_en, label: "소개글 (영어, 선택)", type: text }
+
+  # ───────────── 기타 ─────────────
+  - name: press
+    label: 언론보도·관련 링크
+    type: file
+    path: data/press.json
+    format: json
+    list: true
+    fields:
+      - { name: source, label: "출처·날짜", type: string, description: "예: 전남일보 · 2026.10" }
+      - { name: title, label: 제목, type: string, required: true }
+      - { name: url, label: 주소, type: string, required: true }
+      - { name: source_en, label: "출처 (영어, 선택)", type: string }
+      - { name: title_en, label: "제목 (영어, 선택)", type: string }
