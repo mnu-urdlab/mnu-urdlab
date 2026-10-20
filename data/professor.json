@@ -1,0 +1,104 @@
+{
+  "bio": "고려대학교에서 건축공학을 전공하고 건축설계사무소에서 실무를 시작했습니다. 석사과정 중 뉴타운 프로젝트에 참여하며 도시계획으로 진로를 넓혔고, 이후 도시계획 엔지니어링사와 대형 설계사무소에서 강남구 개포택지개발 마스터플랜, 서울 상봉동 재정비촉진계획 등을 수행했습니다. 박사학위 논문은 「장기미집행 도시계획시설 해소를 위한 입체도시계획 활용방안에 관한 연구」입니다. 2018년 국립목포대학교에 부임한 뒤 전남 지자체와 함께 인구 감소 지역의 빈집·유휴공간 재활용, 폐교된 대학 부지를 사람이 모이는 공간으로 바꾸는 연구 등을 이어가고 있습니다.",
+  "bio_en": "Professor Hong studied architectural engineering at Korea University and began his career at an architectural design firm. While pursuing his master’s degree he joined a New Town project, which drew him into urban planning. He went on to work at urban planning engineering firms and a major design office, leading projects such as the Gaepo housing development master plan in Gangnam and the Sangbong-dong redevelopment promotion plan in Seoul. His doctoral dissertation examined how three-dimensional urban planning can resolve long-unexecuted urban planning facilities. Since joining Mokpo National University in 2018, he has worked with local governments in Jeollanam-do on reusing vacant houses and idle spaces in shrinking towns, and on turning closed university campuses into places where people gather again.",
+  "education": [
+    {
+      "period": "2007.03 – 2016.08",
+      "text": "고려대학교 대학원 건축학과 공학박사(Ph.D.)",
+      "text_en": "Ph.D. in Architecture, Graduate School, Korea University"
+    },
+    {
+      "period": "2005.03 – 2007.02",
+      "text": "고려대학교 대학원 건축공학과 공학석사(M.S.)",
+      "text_en": "M.S. in Architectural Engineering, Graduate School, Korea University"
+    },
+    {
+      "period": "1993.03 – 1999.02",
+      "text": "고려대학교 공과대학 건축공학과 공학사",
+      "text_en": "B.S. in Architectural Engineering, College of Engineering, Korea University"
+    }
+  ],
+  "career": [
+    {
+      "period": "2018 –",
+      "text": "국립목포대학교 도시계획및지역개발학전공 교수",
+      "text_en": "Professor, Urban Planning & Regional Development, Mokpo National University",
+      "current": true
+    },
+    {
+      "period": "2019.09 –",
+      "text": "한국생태환경건축학회 편집위원",
+      "text_en": "Editorial Board Member, Korea Institute of Ecological Architecture and Environment",
+      "current": true
+    },
+    {
+      "period": "2018.06 –",
+      "text": "나주시 도시계획위원",
+      "text_en": "Member, Naju City Urban Planning Committee",
+      "current": true
+    },
+    {
+      "period": "2017.09 –",
+      "text": "경인교육대학교 민간투자시설사업(BTL) 성과평가위원",
+      "text_en": "Performance Evaluator, BTL Private Investment Projects, Gyeongin National University of Education",
+      "current": true
+    },
+    {
+      "period": "2018.01 – 2020.02",
+      "text": "경기도 고양시 도시계획위원",
+      "text_en": "Member, Goyang City Urban Planning Committee, Gyeonggi-do",
+      "current": false
+    },
+    {
+      "period": "2013.02 – 2018.02",
+      "text": "인천대학교 도시건축학부 겸임교수",
+      "text_en": "Adjunct Professor, Division of Urban Architecture, Incheon National University",
+      "current": false
+    },
+    {
+      "period": "2009.03 – 2013.08",
+      "text": "고려대학교 생태환경공학부 겸임교수",
+      "text_en": "Adjunct Professor, Division of Environmental Science & Ecological Engineering, Korea University",
+      "current": false
+    },
+    {
+      "period": "2008.11",
+      "text": "한국건축가협회 초대작가",
+      "text_en": "Invited Artist, Korean Institute of Architects",
+      "current": false
+    },
+    {
+      "period": "2007.11",
+      "text": "한국건축가협회 초대작가",
+      "text_en": "Invited Artist, Korean Institute of Architects",
+      "current": false
+    }
+  ],
+  "awards": [
+    {
+      "period": "2023.11",
+      "text": "한국생태환경건축학회 학술상 (생태적 산지전용 등 실무 연계 연구 공로)",
+      "text_en": "Academic Award, Korea Institute of Ecological Architecture and Environment (for practice-linked research including ecological forest land conversion)"
+    },
+    {
+      "period": "2024",
+      "text": "한국생태환경건축학회 부회장, 한국도시설계학회 위원장 (2024년 보도 기준)",
+      "text_en": "Vice President, Korea Institute of Ecological Architecture and Environment; Committee Chair, Urban Design Institute of Korea (as reported in 2024)"
+    },
+    {
+      "period": "2005",
+      "text": "김포시 WTA 항공복합단지 지명 제안경기(현상설계) 1등",
+      "text_en": "1st Prize, Gimpo WTA Aviation Complex invited design competition"
+    },
+    {
+      "period": "2005",
+      "text": "안산시 재활용선별센터 턴키 입찰설계 2등",
+      "text_en": "2nd Prize, Ansan Recycling Center turnkey design"
+    },
+    {
+      "period": "1999",
+      "text": "스위스 그랜드 호텔 증축설계(현상설계) 1등",
+      "text_en": "1st Prize, Swiss Grand Hotel extension design competition"
+    }
+  ]
+}

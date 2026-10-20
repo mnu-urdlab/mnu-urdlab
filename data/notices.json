@@ -1,0 +1,86 @@
+[
+  {
+    "id": "7f177c29-8173-47fd-8c05-2fa17923908b",
+    "cat": "공지",
+    "pin": true,
+    "date": "2026.10.02",
+    "title": "도시·지역개발 연구실 홈페이지를 개설했습니다",
+    "title_en": "Our lab website is now open",
+    "body": "국립목포대학교 도시계획및지역개발학전공 도시·지역개발 연구실 홈페이지를 개설했습니다.\n\n연구실 공지, 답사·학회 등 주요 행사 사진, 연구 자료를 이곳에서 공유할 예정입니다.",
+    "body_en": "The Urban & Regional Development Lab at Mokpo National University has launched its website.\n\nWe will share lab notices, photos from field trips and conferences, and research materials here.",
+    "link": "",
+    "files": []
+  },
+  {
+    "id": "51cd1a65-bfa7-4101-8f80-a5b887f081a7",
+    "cat": "소식",
+    "pin": false,
+    "date": "2025.10",
+    "title": "MNU Green Road 대학촌 테마거리 조성 정책연구 기본구상 수립",
+    "title_en": "Master concept for the MNU Green Road university town theme street",
+    "body": "국립목포대학교 후문 대학촌을 보행 중심의 문화·혁신 거리로 바꾸는 'MNU Green Road' 기본구상을 수립했습니다. 홍석호 교수가 연구책임을 맡고 관광학과, 경영학부, 아트디자인학부가 공동연구로 참여했습니다.",
+    "body_en": "We completed the master concept for 'MNU Green Road', which turns the university town at MNU's back gate into a pedestrian-first street for culture and innovation. Prof. Sukho Hong led the study with the Departments of Tourism, Business, and Art & Design.",
+    "link": "#greenroad",
+    "files": []
+  },
+  {
+    "id": "a25b8ba6-9205-444f-b21d-c23f26939d22",
+    "cat": "소식",
+    "pin": false,
+    "date": "2024.09",
+    "title": "강진군–국립목포대 글로컬대학30 협력, 성전면 활성화 프로젝트 주도",
+    "title_en": "Leading the Seongjeon-myeon revitalization project with Gangjin County",
+    "body": "",
+    "body_en": "",
+    "link": "https://mnuurd.mokpo.ac.kr/bbs/mnuurd/1452/267106/artclView.do",
+    "files": []
+  },
+  {
+    "id": "71f96253-8b33-4740-b5b8-562fac8c7e32",
+    "cat": "소식",
+    "pin": false,
+    "date": "2024.01",
+    "title": "스포츠서울 ‘혁신한국인&파워코리아’ 선정 인터뷰",
+    "title_en": "Featured in Sports Seoul’s “Innovative Koreans & Power Korea”",
+    "body": "",
+    "body_en": "",
+    "link": "https://www.sportsseoul.com/news/read/1392881",
+    "files": []
+  },
+  {
+    "id": "c00701c3-13e7-470e-aa18-24f881a73a0e",
+    "cat": "소식",
+    "pin": false,
+    "date": "2023.12",
+    "title": "뉴스메이커 인터뷰 ‘사람이 머무르는 공간의 가치 창출’",
+    "title_en": "Newsmaker interview: “Creating value in places where people stay”",
+    "body": "",
+    "body_en": "",
+    "link": "https://sm.mokpo.ac.kr/bbs/urd/319/239063/artclView.do",
+    "files": []
+  },
+  {
+    "id": "16cc6c64-f051-4d1e-8f2a-333c9f4e7926",
+    "cat": "소식",
+    "pin": false,
+    "date": "2023.12",
+    "title": "목포시 도시재생지원센터 연계 LINC 3.0 캡스톤디자인 성과공유회 개최",
+    "title_en": "LINC 3.0 capstone design showcase with the Mokpo Urban Regeneration Support Center",
+    "body": "목포시 도시재생지원센터와 연계한 LINC 3.0 캡스톤디자인 도시재생 아이디어 성과공유회를 개최했습니다.",
+    "body_en": "We held a LINC 3.0 capstone design showcase of urban regeneration ideas in partnership with the Mokpo Urban Regeneration Support Center.",
+    "link": "",
+    "files": []
+  },
+  {
+    "id": "66239054-b184-4d44-a46f-48254d8edc0f",
+    "cat": "소식",
+    "pin": false,
+    "date": "2023.11",
+    "title": "홍석호 교수, 2023 한국생태환경건축학회 학술상 수상",
+    "title_en": "Prof. Sukho Hong receives the 2023 KIEAE Academic Award",
+    "body": "",
+    "body_en": "",
+    "link": "https://www.upinews.kr/newsView/1065598099187236",
+    "files": []
+  }
+]

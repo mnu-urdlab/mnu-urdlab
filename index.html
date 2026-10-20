@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>도시·지역개발 연구실 | 국립목포대학교 도시계획및지역개발학전공</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#1F5A3D; --blue:#2D8550; --teal:#7AAE3A; --bg:#FFFFFF; --bg2:#F1F6F2; --ink:#1B2620; --muted:#5C6B62; --line:#DAE4DC; --card:#FFFFFF; --foot:#1D2633; --foot-ink:#AEB8C6; --on-navy:#FFFFFF;
+  --font:"Noto Sans KR","Apple SD Gothic Neo","Malgun Gothic",system-ui,sans-serif;
+  box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--navy:#143A28;--blue:#6CC08D;--teal:#A6D36A;--bg:#10161F;--bg2:#161E2A;--ink:#E5EAF1;--muted:#9AA6B6;--line:#2A3646;--card:#1A2331;--foot:#0B1017;--foot-ink:#8D99AA}}
+:root[data-theme="dark"]{--navy:#143A28;--blue:#6CC08D;--teal:#A6D36A;--bg:#10161F;--bg2:#161E2A;--ink:#E5EAF1;--muted:#9AA6B6;--line:#2A3646;--card:#1A2331;--foot:#0B1017;--foot-ink:#8D99AA}
+*,*::before,*::after{box-sizing:inherit}
+html{scroll-behavior:smooth;scroll-padding-top:calc(env(safe-area-inset-top,0px) + 84px)}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important;animation:none!important}}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--font);font-size:16px;line-height:1.7;word-break:keep-all}
+img{max-width:100%;display:block}
+a{color:inherit}
+a:focus-visible,button:focus-visible{outline:2px solid var(--blue);outline-offset:2px}
+.wrap{max-width:1200px;margin:0 auto;padding:0 24px}
+
+/* utility bar */
+.util{background:var(--navy);color:var(--on-navy);font-size:13px}
+.util .wrap{display:flex;justify-content:flex-end;gap:20px;height:36px;align-items:center}
+.util a{text-decoration:none;opacity:.85}.util a:hover{opacity:1;text-decoration:underline}
+
+/* header */
+header.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:var(--bg);border-bottom:1px solid var(--line)}
+header.top .wrap{display:flex;align-items:center;justify-content:space-between;height:80px;gap:20px}
+.brand{display:flex;align-items:center;gap:14px;text-decoration:none;min-width:0}
+.logo{height:52px;width:auto;flex:none}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .logo{background:#fff;border-radius:6px;padding:4px}}
+:root[data-theme="dark"] .logo{background:#fff;border-radius:6px;padding:4px}
+.brand-txt{display:flex;flex-direction:column;line-height:1.3;min-width:0}
+.brand-txt small{font-size:12.5px;color:var(--muted);white-space:nowrap}
+.brand-txt b{font-size:19px;font-weight:700;color:var(--navy);white-space:nowrap}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .brand-txt b{color:var(--ink)}}
+nav.gnb ul{display:flex;list-style:none;margin:0;padding:0}
+nav.gnb a{display:block;padding:10px 12px;font-weight:500;font-size:15.5px;text-decoration:none;white-space:nowrap}
+nav.gnb a:hover{color:var(--blue)}
+.menu-btn{display:none;font:inherit;background:none;border:1px solid var(--line);border-radius:4px;padding:6px 12px;color:var(--ink);cursor:pointer}
+@media (max-width:1180px){
+  .menu-btn{display:block}
+  nav.gnb ul{display:none;position:absolute;left:0;right:0;top:100%;flex-direction:column;background:var(--bg);border-bottom:2px solid var(--navy);padding:8px 16px}
+  nav.gnb ul.open{display:flex}
+  nav.gnb a{padding:13px 4px;border-bottom:1px solid var(--line)}
+  .logo{height:42px}
+  .brand-txt b{font-size:16px}.brand-txt small{font-size:11px}
+}
+@media (max-width:420px){.brand-txt small{display:none}}
+
+/* visual */
+.visual{position:relative;height:clamp(360px,52vw,520px);overflow:hidden;background:var(--navy);color:#fff}
+.slide{position:absolute;inset:0;opacity:0;transition:opacity 1.2s ease}
+.slide.on{opacity:1}
+.slide img{width:100%;height:100%;object-fit:cover}
+.slide::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(14,48,31,.9) 0%,rgba(14,48,31,.58) 55%,rgba(14,48,31,.25) 100%)}
+.visual .copy{position:absolute;inset:0;display:flex;align-items:center;z-index:2}
+.visual .copy p.k{margin:0 0 10px;font-size:15px;opacity:.9}
+.visual h1{margin:0 0 16px;font-size:clamp(28px,4.6vw,50px);font-weight:900;line-height:1.25;letter-spacing:-.02em}
+.visual .sub{margin:0;font-size:clamp(15px,1.7vw,18px);max-width:34em;opacity:.92}
+.ctrl{position:absolute;z-index:3;left:0;right:0;bottom:24px}
+.ctrl .wrap{display:flex;align-items:center;gap:12px;font-size:14px}
+.ctrl button{background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.4);color:#fff;border-radius:999px;width:34px;height:34px;cursor:pointer;font:inherit;font-size:13px}
+.ctrl .cap{opacity:.85}
+
+/* quick links */
+.quick{background:var(--bg2);border-bottom:1px solid var(--line)}
+.quick ul{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(6,1fr)}
+.quick a{display:flex;flex-direction:column;align-items:center;gap:10px;padding:26px 8px;text-decoration:none;font-weight:500;font-size:15px;border-right:1px solid var(--line)}
+.quick li:last-child a{border-right:none}
+.quick a:hover{background:var(--card);color:var(--blue)}
+.quick svg{width:38px;height:38px;stroke:var(--blue);fill:none;stroke-width:1.6}
+@media (max-width:760px){.quick ul{grid-template-columns:repeat(3,1fr)}.quick a{border-bottom:1px solid var(--line)}.quick li:nth-child(3n) a{border-right:none}}
+
+/* sections */
+section.sec{padding:76px 0}
+section.alt{background:var(--bg2)}
+.h2{display:flex;align-items:flex-end;justify-content:space-between;gap:16px;margin-bottom:30px;border-bottom:2px solid var(--navy);padding-bottom:14px}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .h2{border-color:var(--blue)}}
+.h2 h2{margin:0;font-size:28px;font-weight:700;letter-spacing:-.01em}
+.h2 span{color:var(--muted);font-size:14px}
+.lead{font-size:17px;max-width:46em;margin:0 0 24px}
+
+/* home board */
+.board{display:grid;grid-template-columns:1.25fr 1fr;gap:32px}
+.panel{background:var(--card);border:1px solid var(--line);border-radius:6px;padding:26px}
+.panel h3{margin:0 0 14px;font-size:20px;display:flex;justify-content:space-between;align-items:center}
+.panel h3 a{font-size:13px;font-weight:400;color:var(--muted);text-decoration:none}
+.news{list-style:none;margin:0;padding:0}
+.news li{display:flex;justify-content:space-between;gap:16px;padding:12px 0;border-bottom:1px solid var(--line)}
+.news li:last-child{border-bottom:none}
+.news a{text-decoration:none;overflow:hidden;text-overflow:ellipsis}
+.news a:hover{color:var(--blue);text-decoration:underline}
+.news time{color:var(--muted);font-size:14px;white-space:nowrap;font-variant-numeric:tabular-nums}
+.feature img{border-radius:4px;border:1px solid var(--line);margin-bottom:14px}
+.feature p{margin:0;color:var(--muted);font-size:15px}
+.feature b{display:block;color:var(--ink);font-size:17px;margin-bottom:4px}
+@media (max-width:900px){.board{grid-template-columns:1fr}}
+
+/* research */
+.areas{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.area{background:var(--card);border:1px solid var(--line);border-top:4px solid var(--blue);padding:26px;border-radius:4px}
+.area:nth-child(2){border-top-color:var(--teal)}.area:nth-child(3){border-top-color:var(--navy)}
+.area h3{margin:0 0 8px;font-size:20px}
+.area p{margin:0;color:var(--muted);font-size:15px}
+@media (max-width:860px){.areas{grid-template-columns:1fr}}
+
+/* professor */
+.prof{display:block}
+.photo{aspect-ratio:3/4;border:1px dashed var(--line);background:var(--card);display:flex;align-items:center;justify-content:center;text-align:center;color:var(--muted);font-size:14px;border-radius:4px;padding:16px}
+.photo img{width:100%;height:100%;object-fit:cover;border-radius:4px}
+.pname{margin:0;font-size:30px;font-weight:700}.pname small{font-size:16px;font-weight:400;color:var(--muted);margin-left:10px}
+.pfield{color:var(--blue);font-weight:500;margin:4px 0 18px}
+table.info{border-collapse:collapse;width:100%;max-width:560px;margin-bottom:22px;font-size:15px}
+table.info th{text-align:left;font-weight:500;color:var(--muted);width:90px;padding:7px 0;vertical-align:top}
+table.info td{padding:7px 0}
+table.info a{color:var(--blue)}
+.bio{margin:0 0 28px;max-width:44em}
+.tabs{display:flex;gap:0;border-bottom:1px solid var(--line);margin-bottom:6px;flex-wrap:wrap}
+.tabs button{font:inherit;font-size:15px;background:none;border:none;border-bottom:3px solid transparent;padding:10px 18px;color:var(--muted);cursor:pointer;margin-bottom:-1px}
+.tabs button[aria-selected="true"]{color:var(--ink);font-weight:700;border-bottom-color:var(--blue)}
+ol.tl{list-style:none;margin:0;padding:0}
+ol.tl li{display:grid;grid-template-columns:150px 1fr;gap:14px;padding:10px 0;border-bottom:1px solid var(--line);font-size:15px}
+ol.tl time{color:var(--muted);font-size:14px;font-variant-numeric:tabular-nums}
+.now{font-size:12px;color:var(--teal);border:1px solid var(--teal);border-radius:999px;padding:0 7px;margin-left:6px}
+@media (max-width:860px){.prof{grid-template-columns:1fr}.photo{max-width:220px}}
+@media (max-width:520px){ol.tl li{grid-template-columns:1fr;gap:0}}
+
+/* featured project */
+.gr-head{display:grid;grid-template-columns:1fr 1fr;gap:36px;margin-bottom:28px}
+.gr-head h3{margin:0 0 6px;font-size:24px}
+.gr-head .meta{color:var(--muted);font-size:14px;margin:0 0 14px}
+.gr-head blockquote{margin:0 0 16px;padding:14px 18px;border-left:4px solid var(--teal);background:var(--card);font-weight:500}
+.gr-head ul{margin:0;padding-left:20px;color:var(--muted);font-size:15px}
+.gr-head li{margin-bottom:6px}
+.zones{display:grid;gap:12px;align-content:start}
+.zone{background:var(--card);border:1px solid var(--line);border-radius:4px;padding:16px 18px}
+.zone b{display:block;font-size:16px}
+.zone span{color:var(--muted);font-size:14px}
+.gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.gallery figure{margin:0;background:var(--card);border:1px solid var(--line);border-radius:4px;overflow:hidden}
+.gallery figure.wide{grid-column:span 2;grid-row:span 2;display:flex;flex-direction:column}
+.gallery figure.wide button{flex:1;min-height:0;background:#0d1b2a}
+.gallery figure.wide img{height:100%;aspect-ratio:auto;object-fit:contain}
+.gallery button{display:block;width:100%;padding:0;border:0;background:none;cursor:zoom-in}
+.gallery img{width:100%;aspect-ratio:16/10;object-fit:cover}
+.gallery figcaption{padding:10px 14px;font-size:14px;color:var(--muted)}
+@media (max-width:860px){.gr-head{grid-template-columns:1fr}.gallery{grid-template-columns:1fr 1fr}.gallery figure.wide{grid-column:span 2;grid-row:auto}.gallery figure.wide img{aspect-ratio:1069/779;height:auto}}
+@media (max-width:520px){.gallery{grid-template-columns:1fr}.gallery figure.wide{grid-column:auto}}
+dialog{border:none;padding:0;max-width:min(1100px,94vw);background:transparent}
+dialog::backdrop{background:rgba(0,0,0,.8)}
+dialog img{max-height:84vh;width:auto;margin:0 auto}
+dialog p{color:#fff;text-align:center;margin:10px 0 0}
+dialog button{position:fixed;top:calc(env(safe-area-inset-top,0px) + 14px);right:18px;font:inherit;background:#fff;color:#000;border:none;border-radius:4px;padding:6px 12px;cursor:pointer}
+
+/* projects & pubs */
+.filter{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:18px}
+.filter button{font:inherit;font-size:14px;padding:6px 16px;border-radius:999px;border:1px solid var(--line);background:var(--card);color:var(--muted);cursor:pointer}
+.filter button[aria-pressed="true"]{background:var(--navy);border-color:var(--navy);color:#fff}
+.tablewrap{overflow-x:auto}
+table.list{width:100%;border-collapse:collapse;font-size:15px;border-top:2px solid var(--ink)}
+table.list th{background:var(--bg2);font-weight:500;padding:12px 10px;border-bottom:1px solid var(--line);text-align:left;white-space:nowrap}
+table.list td{padding:13px 10px;border-bottom:1px solid var(--line);vertical-align:top}
+table.list td.d{color:var(--muted);white-space:nowrap;font-variant-numeric:tabular-nums;font-size:14px}
+section.alt table.list th{background:var(--card)}
+.tag{font-size:12.5px;padding:2px 9px;border-radius:3px;white-space:nowrap;background:color-mix(in srgb,var(--blue) 14%,transparent);color:var(--blue)}
+.tag.reg{background:color-mix(in srgb,var(--teal) 16%,transparent);color:var(--teal)}
+.tag.des{background:color-mix(in srgb,var(--muted) 16%,transparent);color:var(--muted)}
+.me{font-weight:700}
+.note{color:var(--muted);font-size:14px;margin-top:14px}
+
+/* members */
+.mgroup{margin-bottom:34px}
+.mgroup h3{font-size:18px;margin:0 0 14px;padding-left:10px;border-left:4px solid var(--blue)}
+.members{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:16px}
+.member{display:flex;gap:14px;align-items:center;background:var(--card);border:1px solid var(--line);border-radius:6px;padding:18px}
+.avatar{width:64px;height:64px;border-radius:50%;flex:none;background:var(--bg2);border:1px dashed var(--line);display:flex;align-items:center;justify-content:center;color:var(--muted);font-size:20px;font-weight:700}
+.member b{display:block;font-size:17px}
+.member span{display:block;color:var(--muted);font-size:13.5px;line-height:1.5}
+
+/* links */
+.links{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:14px}
+.links a{display:block;background:var(--card);border:1px solid var(--line);border-radius:6px;padding:18px 20px;text-decoration:none}
+.links a:hover{border-color:var(--blue)}
+.links small{display:block;color:var(--muted);font-size:13px;margin-bottom:4px}
+.links b{font-weight:500;display:block}
+.links span{color:var(--blue);font-size:13px}
+
+/* contact */
+.visit{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.visit .panel p{margin:0 0 4px}
+.visit .panel h3{font-size:17px}
+@media (max-width:860px){.visit{grid-template-columns:1fr}}
+
+.lang{font:inherit;font-size:12.5px;background:rgba(255,255,255,.14);color:#fff;border:1px solid rgba(255,255,255,.45);border-radius:999px;padding:2px 12px;cursor:pointer}
+.lang:hover{background:rgba(255,255,255,.26)}
+html[lang="en"] .h2 span{display:none}
+html[lang="en"] body{word-break:normal}
+.h2 a.more{font-size:14px;color:var(--muted);text-decoration:none;white-space:nowrap}
+.h2 a.more:hover{color:var(--blue)}
+/* event cards */
+.ev-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+.ev-card{display:block;text-decoration:none;background:var(--card);border:1px solid var(--line);border-radius:6px;overflow:hidden}
+.ev-card:hover{border-color:var(--blue)}
+.ev-card:hover .ev-t{color:var(--blue)}
+.ev-cover{aspect-ratio:4/3;background:var(--bg2);display:flex;align-items:center;justify-content:center;overflow:hidden}
+.ev-cover img{width:100%;height:100%;object-fit:cover}
+.ev-cover svg{width:56px;height:56px;stroke:var(--line);fill:none;stroke-width:1.5}
+.ev-body{padding:14px 16px 16px}
+.ev-t{display:block;font-weight:500;line-height:1.45;margin-bottom:4px}
+.ev-m{font-size:13.5px;color:var(--muted)}
+.ev-count{font-size:12px;color:var(--muted);margin-left:6px}
+@media (max-width:980px){.ev-grid{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:480px){.ev-grid{grid-template-columns:1fr}}
+.ev-year{font-size:22px;font-weight:700;margin:36px 0 14px;padding-left:12px;border-left:4px solid var(--blue)}
+.ev-year:first-child{margin-top:0}
+/* board view */
+.subvis{background:var(--navy);color:#fff;padding:48px 0 40px}
+.subvis .crumb{margin:0 0 6px;font-size:13.5px;opacity:.8}
+.subvis .crumb a{color:#fff}
+.subvis h1{margin:0;font-size:clamp(26px,3.6vw,36px);font-weight:700}
+.btabs{display:flex;border-bottom:1px solid var(--line);margin:0 0 30px;overflow-x:auto}
+.btabs a{padding:16px 22px;text-decoration:none;color:var(--muted);font-weight:500;border-bottom:3px solid transparent;margin-bottom:-1px;white-space:nowrap}
+.btabs a[aria-current="page"]{color:var(--ink);font-weight:700;border-bottom-color:var(--blue)}
+.bwrap{padding-bottom:80px}
+.btool{display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between;align-items:center;margin-bottom:14px}
+.btool .cnt{color:var(--muted);font-size:14px}
+.btool .cnt b{color:var(--blue)}
+.bsearch{display:flex;gap:6px}
+.bsearch input{font:inherit;font-size:15px;padding:8px 12px;border:1px solid var(--line);border-radius:4px;background:var(--card);color:var(--ink);width:min(260px,60vw)}
+.bsearch input:focus{outline:2px solid var(--blue);outline-offset:0;border-color:var(--blue)}
+table.list td.c{text-align:center;color:var(--muted);white-space:nowrap;width:70px}
+table.list th.c{text-align:center}
+table.list td.t a{text-decoration:none}
+table.list td.t a:hover{text-decoration:underline;color:var(--blue)}
+table.list tr.pin td{background:color-mix(in srgb,var(--blue) 6%,transparent)}
+.badge{display:inline-block;font-size:12px;padding:1px 8px;border-radius:3px;background:var(--blue);color:#fff;white-space:nowrap}
+.badge.soft{background:color-mix(in srgb,var(--teal) 18%,transparent);color:var(--ink)}
+.clip{font-size:13px;color:var(--muted);margin-left:6px}
+.pager{display:flex;justify-content:center;gap:6px;margin-top:26px}
+.pager button{font:inherit;font-size:14px;min-width:36px;height:36px;border:1px solid var(--line);background:var(--card);color:var(--ink);border-radius:4px;cursor:pointer}
+.pager button[aria-current="true"]{background:var(--navy);border-color:var(--navy);color:#fff}
+.empty{padding:56px 20px;text-align:center;color:var(--muted);border:1px dashed var(--line);border-radius:6px}
+@media (max-width:640px){table.list .hide-m{display:none}}
+/* post detail */
+.post{border-top:2px solid var(--ink)}
+.post-h{padding:22px 4px;border-bottom:1px solid var(--line)}
+.post-h h2{margin:8px 0 6px;font-size:24px;line-height:1.4}
+.post-h .meta{color:var(--muted);font-size:14px}
+.post-b{padding:28px 4px;border-bottom:1px solid var(--line)}
+.post-b p{margin:0 0 14px;max-width:52em}
+.post-files{padding:16px 4px;border-bottom:1px solid var(--line);font-size:15px}
+.post-files a{color:var(--blue);display:inline-block;margin:2px 14px 2px 0}
+.post-link{display:inline-block;margin-top:6px;padding:9px 16px;border:1px solid var(--blue);color:var(--blue);border-radius:4px;text-decoration:none}
+.post-nav{list-style:none;margin:0;padding:0;border-bottom:1px solid var(--line)}
+.post-nav li{display:grid;grid-template-columns:80px 1fr;padding:12px 4px;border-top:1px solid var(--line);font-size:15px}
+.post-nav li:first-child{border-top:none}
+.post-nav span{color:var(--muted)}
+.post-nav a{text-decoration:none}.post-nav a:hover{color:var(--blue);text-decoration:underline}
+.post-actions{margin-top:22px;text-align:center}
+.btn-list{display:inline-block;padding:10px 26px;background:var(--navy);color:#fff;border-radius:4px;text-decoration:none}
+.photos{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:12px;padding:24px 0;border-bottom:1px solid var(--line)}
+.photos button{padding:0;border:0;background:none;cursor:zoom-in;border-radius:4px;overflow:hidden}
+.photos img{width:100%;aspect-ratio:4/3;object-fit:cover}
+.chips{display:flex;gap:8px;flex-wrap:wrap}
+.chips button{font:inherit;font-size:14px;padding:6px 16px;border-radius:999px;border:1px solid var(--line);background:var(--card);color:var(--muted);cursor:pointer}
+.chips button[aria-pressed="true"]{background:var(--navy);border-color:var(--navy);color:#fff}
+.dl{display:inline-block;font-size:13.5px;padding:5px 12px;border:1px solid var(--blue);color:var(--blue);border-radius:4px;text-decoration:none;white-space:nowrap}
+.dl:hover{background:var(--blue);color:#fff}
+.rdesc{display:block;color:var(--muted);font-size:13.5px;margin-top:2px}
+
+.util a{white-space:nowrap}
+@media (max-width:480px){.util .wrap{gap:12px;font-size:12px;padding:0 14px}}
+.avatar{overflow:hidden}.avatar img{width:100%;height:100%;object-fit:cover}
+.member a{color:var(--blue)}
+footer{background:var(--foot);color:var(--foot-ink);font-size:13.5px;padding:36px 0 44px}
+footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px}
+footer b{color:#fff;font-weight:500}
+footer a{color:var(--foot-ink)}
+</style>
+</head>
+<body>
+
+<div class="util"><div class="wrap">
+  <a href="https://www.mokpo.ac.kr" target="_blank" rel="noopener" data-en="Mokpo National University">국립목포대학교</a>
+  <a href="https://mnuurd.mokpo.ac.kr/sites/mnuurd/index.do" target="_blank" rel="noopener" data-en="Department">학과 홈페이지</a>
+  <a href="https://mnuwb.mokpo.ac.kr/" target="_blank" rel="noopener" data-en="MNU Portal">국립목포대포털</a>
+  <button class="lang" id="langBtn" type="button" lang="en">English</button>
+</div></div>
+
+<header class="top"><div class="wrap">
+  <a class="brand" href="#">
+    <img class="logo" src="images/mnu-symbol.png" alt="국립목포대학교 심볼마크">
+    <div class="brand-txt"><small data-en="Mokpo National University · Urban Planning &amp; Regional Development">국립목포대학교 도시계획및지역개발학전공</small><b data-en="Urban &amp; Regional Development Lab">도시·지역개발 연구실</b></div>
+  </a>
+  <button class="menu-btn" aria-expanded="false" aria-controls="gnb" data-en="Menu">메뉴</button>
+  <nav class="gnb" aria-label="주메뉴"><ul id="gnb">
+    <li><a href="#about" data-en="About">연구실 소개</a></li>
+    <li><a href="#professor" data-en="People">구성원</a></li>
+    <li><a href="#greenroad" data-en="Research">연구</a></li>
+    <li><a href="#/notice" data-en="Notices">공지사항</a></li>
+    <li><a href="#/events" data-en="Events">연구실 행사</a></li>
+    <li><a href="#/resources" data-en="Resources">자료실</a></li>
+    <li><a href="#contact" data-en="Contact">찾아오시는 길</a></li>
+  </ul></nav>
+</div></header>
+
+<main id="home">
+<div id="homeView">
+<div class="visual" aria-roledescription="carousel">
+  <div class="slide on"><img src="images/p31.jpg" alt=""></div>
+  <div class="slide"><img src="images/p29.jpg" alt=""></div>
+  <div class="slide"><img src="images/p2.jpg" alt=""></div>
+  <div class="copy"><div class="wrap">
+    <p class="k" data-en="Mokpo National University · Division of Urban Planning &amp; Landscape Architecture">국립목포대학교 도시계획및조경학부 도시계획및지역개발학전공</p>
+    <h1 data-en="Places where people gather,<br>cities where regions thrive">사람이 모이는 공간,<br>지역이 살아나는 도시</h1>
+    <p class="sub" data-en="We study urban development, regional development and three-dimensional urban planning, working on the ground to address the real issues facing Jeollanam-do.">도시개발 · 지역개발 · 입체도시를 연구하며, 전남의 현안을 현장에서 함께 풀어가는 연구실입니다.</p>
+  </div></div>
+  <div class="ctrl"><div class="wrap">
+    <button id="slidePause" aria-label="슬라이드 정지">❚❚</button>
+    <span class="cap" id="slideCap">MNU Green Road 기본계획 배치도</span>
+  </div></div>
+</div>
+
+<nav class="quick" aria-label="바로가기"><div class="wrap"><ul>
+  <li><a href="#about"><svg viewBox="0 0 40 40"><rect x="7" y="8" width="26" height="24" rx="2"/><path d="M12 15h16M12 21h16M12 27h10"/></svg><span data-en="About the Lab">연구실 소개</span></a></li>
+  <li><a href="#professor"><svg viewBox="0 0 40 40"><circle cx="14" cy="15" r="5"/><circle cx="27" cy="15" r="5"/><path d="M4 32c1-6 5-9 10-9s9 3 10 9M18 26c2-2 5-3 9-3 5 0 9 3 10 9"/></svg><span data-en="People">구성원</span></a></li>
+  <li><a href="#/notice"><svg viewBox="0 0 40 40"><path d="M8 16v8h5l10 7V9L13 16Z"/><path d="M28 14c2 2 2 10 0 12M31 11c4 4 4 14 0 18"/></svg><span data-en="Notices">공지사항</span></a></li>
+  <li><a href="#/events"><svg viewBox="0 0 40 40"><rect x="5" y="10" width="30" height="22" rx="2"/><circle cx="20" cy="21" r="6"/><path d="M14 10l2-4h8l2 4"/></svg><span data-en="Events">연구실 행사</span></a></li>
+  <li><a href="#/resources"><svg viewBox="0 0 40 40"><path d="M5 12h12l3 3h15v17H5Z"/><path d="M20 19v8M16 23l4 4 4-4"/></svg><span data-en="Resources">자료실</span></a></li>
+  <li><a href="https://mnuurd.mokpo.ac.kr/sites/mnuurd/index.do" target="_blank" rel="noopener"><svg viewBox="0 0 40 40"><path d="M6 17 20 8l14 9M10 17v14h20V17M17 31v-8h6v8"/></svg><span data-en="Department">학과 홈페이지</span></a></li>
+</ul></div></nav>
+
+<section class="sec"><div class="wrap">
+  <div class="board">
+    <div class="panel">
+      <h3><span data-en="Notices">공지사항</span> <a href="#/notice" data-en="More">더보기</a></h3>
+      <ul class="news" id="homeNews"></ul>
+    </div>
+    <div class="panel feature">
+      <h3><span data-en="Featured Project">대표 프로젝트</span> <a href="#greenroad" data-en="Details">자세히</a></h3>
+      <img src="images/p30.jpg" alt="MNU Green Road 기본구상 요약 패널">
+      <b data-en="MNU Green Road — Policy Study for a University Town Theme Street">MNU Green Road — 대학촌 테마거리 조성 정책연구</b>
+      <p data-en="A master concept turning the university town at MNU’s back gate into a pedestrian-first street for culture and innovation (2025)">국립목포대 후문 대학촌을 보행 중심의 문화·혁신 거리로 바꾸는 기본구상 (2025)</p>
+    </div>
+  </div>
+</div></section>
+
+<section class="sec alt" id="home-events"><div class="wrap">
+  <div class="h2"><h2 data-en="Lab Events">연구실 행사</h2><a class="more" href="#/events" data-en="View all">전체보기</a></div>
+  <div class="ev-grid" id="homeEvents"></div>
+</div></section>
+
+<section class="sec" id="about"><div class="wrap">
+  <div class="h2"><h2 data-en="About the Lab">연구실 소개</h2><span>About the Lab</span></div>
+  <p class="lead" data-en="The Urban &amp; Regional Development Lab is led by Professor Sukho Hong in the Urban Planning &amp; Regional Development program at Mokpo National University. We see the city not as a flat plan but as layered space above and below ground, and we study how to create places where people want to stay in Jeollanam-do, a region facing population decline and spatial decay. Students take part in real projects with local governments and universities, learning theory and practice together.">도시·지역개발 연구실은 국립목포대학교 도시계획및지역개발학전공 홍석호 교수가 지도하는 연구실입니다. 도시를 평면이 아닌 지하·지상·공중이 겹쳐진 입체로 바라보고, 인구 감소와 공간 쇠퇴를 겪는 전남 지역에서 사람이 머무르는 공간을 만드는 방법을 연구합니다. 지자체·대학과 함께하는 실제 프로젝트에 연구생이 직접 참여해 이론과 실무를 함께 익힙니다.</p>
+  <div class="areas">
+    <div class="area"><h3 data-en="Urban Development">도시개발</h3><p data-en="Designation of urban development zones and development plans, redevelopment promotion plans, renewal area guidelines, and reform of urban development law.">도시개발사업 구역 지정과 개발계획, 재정비 촉진계획, 정비구역 가이드라인, 도시개발 관련 법령 정비를 연구합니다.</p></div>
+    <div class="area"><h3 data-en="Regional Development">지역개발</h3><p data-en="Reuse of vacant houses and idle spaces in small towns, regeneration of university towns that benefit both campus and community, and theme streets built on historic and cultural assets.">소도시의 빈집과 폐·유휴공간 재활용, 대학과 지역이 상생하는 대학촌 재생, 역사문화자원을 활용한 특화거리를 다룹니다.</p></div>
+    <div class="area"><h3 data-en="3D Urban Planning">입체도시</h3><p data-en="Planning systems that use one parcel of land on multiple levels, including overlapping-use zones, privately funded station buildings, and resolving long-unexecuted urban planning facilities.">중복이용구역, 민자역사, 장기미집행 도시계획시설 해소 등 하나의 땅을 여러 층위로 쓰는 입체도시계획 제도를 연구합니다.</p></div>
+  </div>
+</div></section>
+
+<section class="sec alt" id="professor"><div class="wrap">
+  <div class="h2"><h2 data-en="Professor">지도교수</h2><span>Professor</span></div>
+  <div class="prof">
+    <div>
+      <h3 class="pname"><span data-en="Sukho Hong">홍석호</span><small data-en="홍석호 · Associate Professor">Sukho Hong · 부교수</small></h3>
+      <p class="pfield" data-en="Urban Development · Regional Development · 3D Urban Planning">도시개발 · 지역개발 · 입체도시</p>
+      <table class="info">
+        <tr><th data-en="Affiliation">소속</th><td data-en="Division of Urban Planning &amp; Landscape Architecture,<br>Urban Planning &amp; Regional Development Major">도시계획및조경학부 도시계획및지역개발학전공<br>(도시및지역개발학과)</td></tr>
+        <tr><th data-en="Email">이메일</th><td><a href="mailto:sukhohong@mnu.ac.kr">sukhohong@mnu.ac.kr</a></td></tr>
+        <tr><th data-en="Phone">전화</th><td><a href="tel:061-450-2224">061-450-2224</a></td></tr>
+        <tr><th data-en="Office">교수실</th><td data-en="Room 4173, Social Sciences Building (A8)">사회과학관(A8) 4173호</td></tr>
+      </table>
+      <p class="bio" id="profBio"></p>
+      <div class="tabs" role="tablist">
+        <button role="tab" aria-selected="true" aria-controls="t-edu" id="b-edu" data-en="Education">학력</button>
+        <button role="tab" aria-selected="false" aria-controls="t-career" id="b-career" data-en="Career">경력</button>
+        <button role="tab" aria-selected="false" aria-controls="t-award" id="b-award" data-en="Awards &amp; Service">수상·활동</button>
+      </div>
+      <ol class="tl" role="tabpanel" id="t-edu" aria-labelledby="b-edu"></ol>
+      <ol class="tl" role="tabpanel" id="t-career" aria-labelledby="b-career" hidden></ol>
+      <ol class="tl" role="tabpanel" id="t-award" aria-labelledby="b-award" hidden></ol>
+    </div>
+  </div>
+</div></section>
+
+<section class="sec" id="members"><div class="wrap">
+  <div class="h2"><h2 data-en="Members">구성원</h2><span>Members</span></div>
+  <div id="memberGroups"></div>
+  <p class="note" data-en="Photos, research interests and contact details will be added soon.">사진, 연구분야, 연락처는 추후 추가됩니다.</p>
+</div></section>
+
+<section class="sec alt" id="greenroad"><div class="wrap">
+  <div class="h2"><h2 data-en="Featured Project">대표 프로젝트</h2><span>Featured Project</span></div>
+  <div class="gr-head">
+    <div>
+      <h3>MNU Green Road</h3>
+      <p class="meta" data-en="Policy study and implementation plan for a university town theme street · Oct 2025 · Glocal University Promotion Team, Campus Landmark Project (Phase 2) · PI: Sukho Hong">대학촌 테마거리 조성을 위한 정책연구 및 용역 추진 계획 · 2025.10 · 글로컬대학추진단 캠퍼스 명소화 사업(2단계) · 연구책임 홍석호</p>
+      <blockquote data-en="An open campus road where art becomes everyday life, ideas are tested, and the green energy of youth comes alive">예술이 일상이 되고, 아이디어가 실험되며, 청년의 푸른 에너지가 생동하는 열린 캠퍼스 로드</blockquote>
+      <ul>
+        <li data-en="Site: the university town at MNU’s back gate, Cheonggye-myeon, Muan-gun (a street of about 290 m and its surroundings)">대상지: 전남 무안군 청계면 국립목포대학교 후문 대학촌 일대(약 290m 가로 및 인접 영향권)</li>
+        <li data-en="Issues: no visible university-town identity, narrow sidewalks (about 1.0 m) with level changes, few places to stay, and poor night lighting">현장 문제: 대학촌 정체성의 부재, 좁은 보도(약 1.0m)와 단차, 머물 공간 부족, 어두운 야간 경관</li>
+        <li data-en="Strategies: traffic calming and sidewalk widening (1.25 m or more), undergrounding power lines, a green landscape network, a symbol sculpture and media pole, and four-party governance of residents, government and university">계획 방향: 교통정온화와 보도 확장(1.25m 이상), 전선 지중화, 그린 네트워크 조경, 상징 조형물·미디어폴, 민·관·학 4자 거버넌스</li>
+        <li data-en="Team: joint research with the Departments of Tourism, Business, and Art &amp; Design, with lab students as research assistants">참여: 관광학과·경영학부·아트디자인학부 공동연구, 연구실 연구생 연구보조</li>
+      </ul>
+    </div>
+    <div class="zones">
+      <div class="zone"><b>Campus Archive Road</b><span data-en="Back-gate entrance. A book café, study booths and reading benches drawing on the university’s history and knowledge">후문 진입부. 대학의 역사와 지적 자산을 담은 북카페, 스터디 부스, 리딩 벤치</span></div>
+      <div class="zone"><b>Youth Street Artist Alley</b><span data-en="Commercial core. A street gallery, busking stage, graffiti wall and art flea market">상권 중심부. 거리 갤러리, 버스킹 스테이지, 그래피티 월, 아트 프리마켓</span></div>
+      <div class="zone"><b>Culture Innovation Street</b><span data-en="Idle lots and plaza. Modular pop-up stores, youth start-up booths and an idea lab">유휴부지·광장. 모듈형 팝업 스토어, 청년 창업 부스, 아이디어 랩</span></div>
+    </div>
+  </div>
+  <div class="gallery" id="gallery">
+    <figure class="wide"><button data-cap="MNU Green Road 기본구상" data-cap-en="MNU Green Road master concept"><img src="images/p30.jpg" alt="MNU Green Road 기본구상 패널"></button><figcaption data-en="MNU Green Road master concept">MNU Green Road 기본구상</figcaption></figure>
+    <figure><button data-cap="기본계획 배치도" data-cap-en="Master plan layout"><img src="images/p31.jpg" alt="기본계획 배치도"></button><figcaption data-en="Master plan layout">기본계획 배치도</figcaption></figure>
+    <figure><button data-cap="공간계획" data-cap-en="Spatial plan"><img src="images/p29.jpg" alt="공간계획 다이어그램"></button><figcaption data-en="Spatial plan">공간계획</figcaption></figure>
+    <figure><button data-cap="Campus Archive Road 컨셉" data-cap-en="Campus Archive Road concept"><img src="images/p23.jpg" alt="Campus Archive Road 컨셉 일러스트"></button><figcaption data-en="Campus Archive Road concept">Campus Archive Road 컨셉</figcaption></figure>
+    <figure><button data-cap="대상지 현황" data-cap-en="Existing site conditions"><img src="images/p6.jpg" alt="대상지 현황 사진"></button><figcaption data-en="Existing site conditions">대상지 현황</figcaption></figure>
+  <figure><button data-cap="대상지 위치: 국립목포대학교 후문 대학촌" data-cap-en="Site location: university town at MNU’s back gate"><img src="images/p2.jpg" alt="대상지 위치 위성사진"></button><figcaption data-en="Site location">대상지 위치</figcaption></figure>
+  </div>
+</div></section>
+
+<section class="sec" id="projects"><div class="wrap">
+  <div class="h2"><h2 data-en="Projects">연구실적</h2><span>Projects</span></div>
+  <div class="filter" role="group" aria-label="분야별 보기">
+    <button aria-pressed="true" data-f="all" data-en="All">전체</button>
+    <button aria-pressed="false" data-f="dev" data-en="Urban Development">도시개발·정비</button>
+    <button aria-pressed="false" data-f="reg" data-en="Regional &amp; Cultural">지역·문화</button>
+    <button aria-pressed="false" data-f="des" data-en="Design">설계·디자인</button>
+  </div>
+  <div class="tablewrap"><table class="list"><thead><tr><th data-en="Period">기간</th><th data-en="Project">과제명</th><th data-en="Field">분야</th></tr></thead><tbody id="projBody"></tbody></table></div>
+</div></section>
+
+<section class="sec alt" id="publications"><div class="wrap">
+  <div class="h2"><h2 data-en="Publications">논문·저서</h2><span>Publications</span></div>
+  <div class="tablewrap"><table class="list"><thead><tr><th data-en="Year">연도</th><th data-en="Title">제목</th><th data-en="Authors · Venue">저자 · 게재지</th></tr></thead><tbody id="pubBody"></tbody></table></div>
+</div></section>
+
+
+
+<section class="sec" id="press"><div class="wrap">
+  <div class="h2"><h2 data-en="Press &amp; Links">언론보도 · 관련 링크</h2><span>Press &amp; Links</span></div>
+  <div class="links" id="pressLinks"></div>
+</div></section>
+
+<section class="sec alt" id="contact"><div class="wrap">
+  <div class="h2"><h2 data-en="Contact">찾아오시는 길</h2><span>Contact</span></div>
+  <div class="visit">
+    <div class="panel"><h3 data-en="Lab">연구실</h3><p data-en="Room 4182, Social Sciences Building (A8)">사회과학관(A8) 4182호</p><p style="color:var(--muted);font-size:14px" data-en="Prof. Sukho Hong’s lab">홍석호 교수 연구실</p></div>
+    <div class="panel"><h3 data-en="Office &amp; Department">교수실 · 학과사무실</h3><p data-en="Professor’s office: Room 4173, Social Sciences Building (A8)">교수실: 사회과학관(A8) 4173호</p><p data-en="Department office: Social Sciences Building (A8)">학과사무실: 사회과학관(A8)</p></div>
+    <div class="panel"><h3 data-en="Address">주소</h3><p data-en="1666 Yeongsan-ro, Cheonggye-myeon, Muan-gun, Jeollanam-do 58554, Korea">(58554) 전남 무안군 청계면 영산로 1666</p><p data-en="Mokpo National University, Dorim Campus">국립목포대학교 도림캠퍼스</p><p><a href="mailto:sukhohong@mnu.ac.kr" style="color:var(--blue)">sukhohong@mnu.ac.kr</a></p></div>
+  </div>
+</div></section>
+</div>
+<div id="boardView" hidden></div>
+</main>
+
+<footer><div class="wrap">
+  <div data-en="<b>Urban &amp;amp; Regional Development Lab, Mokpo National University</b><br>Room 4182, Social Sciences Building (A8), 1666 Yeongsan-ro, Cheonggye-myeon, Muan-gun, Jeollanam-do 58554, Korea"><b>국립목포대학교 도시계획및지역개발학전공 도시·지역개발 연구실</b><br>(58554) 전남 무안군 청계면 영산로 1666 사회과학관(A8) 4182호</div>
+  <div>COPYRIGHT © MOKPO NATIONAL UNIVERSITY. ALL RIGHTS RESERVED.<br><a href="https://mnuurd.mokpo.ac.kr/sites/mnuurd/index.do" target="_blank" rel="noopener" data-en="Visit the department website">학과 홈페이지 바로가기</a></div>
+</div></footer>
+
+<dialog id="lightbox"><button id="lbClose" data-en="Close">닫기</button><img id="lbImg" alt=""><p id="lbCap"></p></dialog>
+
+<script src="app.js"></script>
+</body>
+</html>
