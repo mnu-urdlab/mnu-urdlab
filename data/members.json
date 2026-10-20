@@ -1,79 +1,49 @@
 [
   {
     "name": "원종선",
-    "name_en": "",
     "group": "phd_researcher",
     "role": "박사",
-    "role_en": "Ph.D.",
-    "note": "",
-    "note_en": "",
-    "email": "",
-    "photo": ""
+    "role_en": "Ph.D."
   },
   {
     "name": "김희영",
-    "name_en": "",
     "group": "phd_researcher",
     "role": "박사",
-    "role_en": "Ph.D.",
-    "note": "",
-    "note_en": "",
-    "email": "",
-    "photo": ""
+    "role_en": "Ph.D."
   },
   {
     "name": "한광재",
-    "name_en": "",
     "group": "phd_researcher",
     "role": "박사",
-    "role_en": "Ph.D.",
-    "note": "",
-    "note_en": "",
-    "email": "",
-    "photo": ""
+    "role_en": "Ph.D."
   },
   {
     "name": "양희정",
-    "name_en": "",
     "group": "researcher",
     "role": "연구원 · 석사과정",
-    "role_en": "Researcher · Master’s student",
     "note": "MNU Green Road 정책연구 연구보조원",
-    "note_en": "Research assistant, MNU Green Road policy study",
-    "email": "",
-    "photo": ""
+    "photo": "/images/img7931.jpeg",
+    "role_en": "Researcher · Master’s student",
+    "note_en": "Research assistant, MNU Green Road policy study"
   },
   {
     "name": "윤도여",
-    "name_en": "",
     "group": "ug",
     "role": "학사과정",
-    "role_en": "Undergraduate",
     "note": "MNU Green Road 정책연구 연구보조원",
-    "note_en": "Research assistant, MNU Green Road policy study",
-    "email": "",
-    "photo": ""
+    "role_en": "Undergraduate",
+    "note_en": "Research assistant, MNU Green Road policy study"
   },
   {
     "name": "김승채",
-    "name_en": "",
     "group": "ug",
     "role": "학사과정",
-    "role_en": "Undergraduate",
-    "note": "",
-    "note_en": "",
-    "email": "",
-    "photo": ""
+    "role_en": "Undergraduate"
   },
   {
     "name": "이건주",
-    "name_en": "",
     "group": "ug",
     "role": "학사과정",
-    "role_en": "Undergraduate",
-    "note": "",
-    "note_en": "",
-    "email": "",
-    "photo": ""
+    "role_en": "Undergraduate"
   }
 ]
