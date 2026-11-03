@@ -1,5 +1,11 @@
 [
   {
+    "name": "한광재",
+    "group": "phd_researcher",
+    "role": "박사",
+    "role_en": "Ph.D."
+  },
+  {
     "name": "원종선",
     "group": "phd_researcher",
     "role": "박사",
@@ -12,7 +18,7 @@
     "role_en": "Ph.D."
   },
   {
-    "name": "한광재",
+    "name": "최종원",
     "group": "phd_researcher",
     "role": "박사",
     "role_en": "Ph.D."
@@ -43,6 +49,24 @@
   },
   {
     "name": "이건주",
+    "group": "ug",
+    "role": "학사과정",
+    "role_en": "Undergraduate"
+  },
+  {
+    "name": "김태윤",
+    "group": "ug",
+    "role": "학사과정",
+    "role_en": "Undergraduate"
+  },
+  {
+    "name": "이원빈",
+    "group": "ug",
+    "role": "학사과정",
+    "role_en": "Undergraduate"
+  },
+  {
+    "name": "이예은",
     "group": "ug",
     "role": "학사과정",
     "role_en": "Undergraduate"
