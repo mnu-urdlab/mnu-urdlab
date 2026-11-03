@@ -47,7 +47,9 @@ content:
             type: file
             options: { media: files, multiple: { max: 10 } }
           - { name: title_en, label: "제목 (영어, 선택)", type: string }
+          - { name: title_zh, label: "제목 (중국어, 선택)", type: string }
           - { name: body_en, label: "본문 (영어, 선택)", type: text }
+          - { name: body_zh, label: "본문 (중국어, 선택)", type: text }
 
       - name: events
         label: 연구실 행사 (사진)
@@ -67,8 +69,11 @@ content:
             description: "첫 번째 사진이 대표 사진이 됩니다. 사진은 가로 1600px 이하로 줄여서 올리면 빨라요."
             options: { media: images, multiple: { max: 40 } }
           - { name: title_en, label: "행사명 (영어, 선택)", type: string }
+          - { name: title_zh, label: "행사명 (중국어, 선택)", type: string }
           - { name: place_en, label: "장소 (영어, 선택)", type: string }
+          - { name: place_zh, label: "장소 (중국어, 선택)", type: string }
           - { name: desc_en, label: "설명 (영어, 선택)", type: text }
+          - { name: desc_zh, label: "설명 (중국어, 선택)", type: text }
 
       - name: resources
         label: 자료실
@@ -93,7 +98,9 @@ content:
             options: { media: files }
           - { name: url, label: 외부 링크, type: string }
           - { name: title_en, label: "자료명 (영어, 선택)", type: string }
+          - { name: title_zh, label: "자료명 (중국어, 선택)", type: string }
           - { name: desc_en, label: "설명 (영어, 선택)", type: string }
+          - { name: desc_zh, label: "설명 (중국어, 선택)", type: string }
 
   # ───────────── 연구 ─────────────
   - name: research
@@ -112,8 +119,11 @@ content:
           - { name: authors, label: 저자, type: string, description: "예: 홍석호, 김세용" }
           - { name: venue, label: "학술지·발행처", type: string, description: "예: 대한건축학회지 30(9), 119–127" }
           - { name: title_en, label: "제목 (영어, 선택)", type: string }
+          - { name: title_zh, label: "제목 (중국어, 선택)", type: string }
           - { name: authors_en, label: "저자 (영어, 선택)", type: string }
+          - { name: authors_zh, label: "저자 (중국어, 선택)", type: string }
           - { name: venue_en, label: "학술지 (영어, 선택)", type: string }
+          - { name: venue_zh, label: "학술지 (중국어, 선택)", type: string }
 
       - name: projects
         label: 연구실적 (과제·용역)
@@ -134,6 +144,7 @@ content:
                 - { name: reg, label: 지역·문화 }
                 - { name: des, label: 설계·디자인 }
           - { name: title_en, label: "과제명 (영어, 선택)", type: string }
+          - { name: title_zh, label: "과제명 (중국어, 선택)", type: string }
 
   # ───────────── 사람 ─────────────
   - name: people
@@ -168,8 +179,11 @@ content:
             type: image
             options: { media: images }
           - { name: name_en, label: "이름 (영어, 선택)", type: string }
+          - { name: name_zh, label: "이름 (중국어, 선택)", type: string }
           - { name: role_en, label: "과정 (영어, 선택)", type: string }
+          - { name: role_zh, label: "과정 (중국어, 선택)", type: string }
           - { name: note_en, label: "연구분야 (영어, 선택)", type: string }
+          - { name: note_zh, label: "연구분야 (중국어, 선택)", type: string }
 
       - name: professor
         label: 지도교수 약력
@@ -187,6 +201,7 @@ content:
               - { name: period, label: 기간, type: string }
               - { name: text, label: 내용, type: string }
               - { name: text_en, label: "내용 (영어, 선택)", type: string }
+              - { name: text_zh, label: "내용 (중국어, 선택)", type: string }
           - name: career
             label: 경력
             type: object
@@ -196,6 +211,7 @@ content:
               - { name: text, label: 내용, type: string }
               - { name: current, label: 현재 재직, type: boolean }
               - { name: text_en, label: "내용 (영어, 선택)", type: string }
+              - { name: text_zh, label: "내용 (중국어, 선택)", type: string }
           - name: awards
             label: 수상·활동
             type: object
@@ -204,7 +220,9 @@ content:
               - { name: period, label: 연도, type: string }
               - { name: text, label: 내용, type: string }
               - { name: text_en, label: "내용 (영어, 선택)", type: string }
+              - { name: text_zh, label: "내용 (중국어, 선택)", type: string }
           - { name: bio_en, label: "소개글 (영어, 선택)", type: text }
+          - { name: bio_zh, label: "소개글 (중국어, 선택)", type: text }
 
   # ───────────── 기타 ─────────────
   - name: press
@@ -218,4 +236,6 @@ content:
       - { name: title, label: 제목, type: string, required: true }
       - { name: url, label: 주소, type: string, required: true }
       - { name: source_en, label: "출처 (영어, 선택)", type: string }
+      - { name: source_zh, label: "출처 (중국어, 선택)", type: string }
       - { name: title_en, label: "제목 (영어, 선택)", type: string }
+      - { name: title_zh, label: "제목 (중국어, 선택)", type: string }

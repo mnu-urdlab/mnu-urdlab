@@ -201,7 +201,10 @@ section.alt table.list th{background:var(--card)}
 
 .lang{font:inherit;font-size:12.5px;background:rgba(255,255,255,.14);color:#fff;border:1px solid rgba(255,255,255,.45);border-radius:999px;padding:2px 12px;cursor:pointer}
 .lang:hover{background:rgba(255,255,255,.26)}
+.langs{display:inline-flex;gap:6px;flex-wrap:wrap}
+.lang[aria-pressed="true"]{background:#fff;color:var(--navy);border-color:#fff;font-weight:700}
 html[lang="en"] .h2 span{display:none}
+html[lang="zh-Hans"] body{font-family:"PingFang SC","Microsoft YaHei","Noto Sans SC","Noto Sans KR",sans-serif}
 html[lang="en"] body{word-break:normal}
 .h2 a.more{font-size:14px;color:var(--muted);text-decoration:none;white-space:nowrap}
 .h2 a.more:hover{color:var(--blue)}
@@ -293,26 +296,26 @@ footer a{color:var(--foot-ink)}
 <body>
 
 <div class="util"><div class="wrap">
-  <a href="https://www.mokpo.ac.kr" target="_blank" rel="noopener" data-en="Mokpo National University">국립목포대학교</a>
-  <a href="https://mnuurd.mokpo.ac.kr/sites/mnuurd/index.do" target="_blank" rel="noopener" data-en="Department">학과 홈페이지</a>
-  <a href="https://mnuwb.mokpo.ac.kr/" target="_blank" rel="noopener" data-en="MNU Portal">국립목포대포털</a>
-  <button class="lang" id="langBtn" type="button" lang="en">English</button>
+  <a href="https://www.mokpo.ac.kr" target="_blank" rel="noopener" data-en="Mokpo National University" data-zh="国立木浦大学">국립목포대학교</a>
+  <a href="https://mnuurd.mokpo.ac.kr/sites/mnuurd/index.do" target="_blank" rel="noopener" data-en="Department" data-zh="学科主页">학과 홈페이지</a>
+  <a href="https://mnuwb.mokpo.ac.kr/" target="_blank" rel="noopener" data-en="MNU Portal" data-zh="木浦大学门户">국립목포대포털</a>
+  <span class="langs" id="langs" role="group" aria-label="Language"><button class="lang" type="button" data-l="ko" lang="ko">한국어</button><button class="lang" type="button" data-l="en" lang="en">English</button><button class="lang" type="button" data-l="zh" lang="zh-Hans">中文</button></span>
 </div></div>
 
 <header class="top"><div class="wrap">
   <a class="brand" href="#">
     <img class="logo" src="images/mnu-symbol.png" alt="국립목포대학교 심볼마크">
-    <div class="brand-txt"><small data-en="Mokpo National University · Urban Planning &amp; Regional Development">국립목포대학교 도시계획및지역개발학전공</small><b data-en="Urban &amp; Regional Development Lab">도시·지역개발 연구실</b></div>
+    <div class="brand-txt"><small data-en="Mokpo National University · Urban Planning &amp; Regional Development" data-zh="国立木浦大学 · 城市规划与区域开发专业">국립목포대학교 도시계획및지역개발학전공</small><b data-en="Urban &amp; Regional Development Lab" data-zh="城市·区域开发研究室">도시·지역개발 연구실</b></div>
   </a>
-  <button class="menu-btn" aria-expanded="false" aria-controls="gnb" data-en="Menu">메뉴</button>
+  <button class="menu-btn" aria-expanded="false" aria-controls="gnb" data-en="Menu" data-zh="菜单">메뉴</button>
   <nav class="gnb" aria-label="주메뉴"><ul id="gnb">
-    <li><a href="#about" data-en="About">연구실 소개</a></li>
-    <li><a href="#professor" data-en="People">구성원</a></li>
-    <li><a href="#greenroad" data-en="Research">연구</a></li>
-    <li><a href="#/notice" data-en="Notices">공지사항</a></li>
-    <li><a href="#/events" data-en="Events">연구실 행사</a></li>
-    <li><a href="#/resources" data-en="Resources">자료실</a></li>
-    <li><a href="#contact" data-en="Contact">찾아오시는 길</a></li>
+    <li><a href="#about" data-en="About" data-zh="研究室介绍">연구실 소개</a></li>
+    <li><a href="#professor" data-en="People" data-zh="成员">구성원</a></li>
+    <li><a href="#greenroad" data-en="Research" data-zh="研究">연구</a></li>
+    <li><a href="#/notice" data-en="Notices" data-zh="公告">공지사항</a></li>
+    <li><a href="#/events" data-en="Events" data-zh="研究室活动">연구실 행사</a></li>
+    <li><a href="#/resources" data-en="Resources" data-zh="资料室">자료실</a></li>
+    <li><a href="#contact" data-en="Contact" data-zh="联系方式">찾아오시는 길</a></li>
   </ul></nav>
 </div></header>
 
@@ -323,9 +326,9 @@ footer a{color:var(--foot-ink)}
   <div class="slide"><img src="images/p29.jpg" alt=""></div>
   <div class="slide"><img src="images/p2.jpg" alt=""></div>
   <div class="copy"><div class="wrap">
-    <p class="k" data-en="Mokpo National University · Division of Urban Planning &amp; Landscape Architecture">국립목포대학교 도시계획및조경학부 도시계획및지역개발학전공</p>
-    <h1 data-en="Places where people gather,<br>cities where regions thrive">사람이 모이는 공간,<br>지역이 살아나는 도시</h1>
-    <p class="sub" data-en="We study urban development, regional development and three-dimensional urban planning, working on the ground to address the real issues facing Jeollanam-do.">도시개발 · 지역개발 · 입체도시를 연구하며, 전남의 현안을 현장에서 함께 풀어가는 연구실입니다.</p>
+    <p class="k" data-en="Mokpo National University · Division of Urban Planning &amp; Landscape Architecture" data-zh="国立木浦大学 · 城市规划与景观学部">국립목포대학교 도시계획및조경학부 도시계획및지역개발학전공</p>
+    <h1 data-en="Places where people gather,<br>cities where regions thrive" data-zh="人们相聚的空间，<br>区域繁荣的城市">사람이 모이는 공간,<br>지역이 살아나는 도시</h1>
+    <p class="sub" data-en="We study urban development, regional development and three-dimensional urban planning, working on the ground to address the real issues facing Jeollanam-do." data-zh="我们研究城市开发、区域开发与立体城市规划，深入现场，应对全罗南道面临的现实问题。">도시개발 · 지역개발 · 입체도시를 연구하며, 전남의 현안을 현장에서 함께 풀어가는 연구실입니다.</p>
   </div></div>
   <div class="ctrl"><div class="wrap">
     <button id="slidePause" aria-label="슬라이드 정지">❚❚</button>
@@ -334,62 +337,62 @@ footer a{color:var(--foot-ink)}
 </div>
 
 <nav class="quick" aria-label="바로가기"><div class="wrap"><ul>
-  <li><a href="#about"><svg viewBox="0 0 40 40"><rect x="7" y="8" width="26" height="24" rx="2"/><path d="M12 15h16M12 21h16M12 27h10"/></svg><span data-en="About the Lab">연구실 소개</span></a></li>
-  <li><a href="#professor"><svg viewBox="0 0 40 40"><circle cx="14" cy="15" r="5"/><circle cx="27" cy="15" r="5"/><path d="M4 32c1-6 5-9 10-9s9 3 10 9M18 26c2-2 5-3 9-3 5 0 9 3 10 9"/></svg><span data-en="People">구성원</span></a></li>
-  <li><a href="#/notice"><svg viewBox="0 0 40 40"><path d="M8 16v8h5l10 7V9L13 16Z"/><path d="M28 14c2 2 2 10 0 12M31 11c4 4 4 14 0 18"/></svg><span data-en="Notices">공지사항</span></a></li>
-  <li><a href="#/events"><svg viewBox="0 0 40 40"><rect x="5" y="10" width="30" height="22" rx="2"/><circle cx="20" cy="21" r="6"/><path d="M14 10l2-4h8l2 4"/></svg><span data-en="Events">연구실 행사</span></a></li>
-  <li><a href="#/resources"><svg viewBox="0 0 40 40"><path d="M5 12h12l3 3h15v17H5Z"/><path d="M20 19v8M16 23l4 4 4-4"/></svg><span data-en="Resources">자료실</span></a></li>
-  <li><a href="https://mnuurd.mokpo.ac.kr/sites/mnuurd/index.do" target="_blank" rel="noopener"><svg viewBox="0 0 40 40"><path d="M6 17 20 8l14 9M10 17v14h20V17M17 31v-8h6v8"/></svg><span data-en="Department">학과 홈페이지</span></a></li>
+  <li><a href="#about"><svg viewBox="0 0 40 40"><rect x="7" y="8" width="26" height="24" rx="2"/><path d="M12 15h16M12 21h16M12 27h10"/></svg><span data-en="About the Lab" data-zh="研究室介绍">연구실 소개</span></a></li>
+  <li><a href="#professor"><svg viewBox="0 0 40 40"><circle cx="14" cy="15" r="5"/><circle cx="27" cy="15" r="5"/><path d="M4 32c1-6 5-9 10-9s9 3 10 9M18 26c2-2 5-3 9-3 5 0 9 3 10 9"/></svg><span data-en="People" data-zh="成员">구성원</span></a></li>
+  <li><a href="#/notice"><svg viewBox="0 0 40 40"><path d="M8 16v8h5l10 7V9L13 16Z"/><path d="M28 14c2 2 2 10 0 12M31 11c4 4 4 14 0 18"/></svg><span data-en="Notices" data-zh="公告">공지사항</span></a></li>
+  <li><a href="#/events"><svg viewBox="0 0 40 40"><rect x="5" y="10" width="30" height="22" rx="2"/><circle cx="20" cy="21" r="6"/><path d="M14 10l2-4h8l2 4"/></svg><span data-en="Events" data-zh="研究室活动">연구실 행사</span></a></li>
+  <li><a href="#/resources"><svg viewBox="0 0 40 40"><path d="M5 12h12l3 3h15v17H5Z"/><path d="M20 19v8M16 23l4 4 4-4"/></svg><span data-en="Resources" data-zh="资料室">자료실</span></a></li>
+  <li><a href="https://mnuurd.mokpo.ac.kr/sites/mnuurd/index.do" target="_blank" rel="noopener"><svg viewBox="0 0 40 40"><path d="M6 17 20 8l14 9M10 17v14h20V17M17 31v-8h6v8"/></svg><span data-en="Department" data-zh="学科主页">학과 홈페이지</span></a></li>
 </ul></div></nav>
 
 <section class="sec"><div class="wrap">
   <div class="board">
     <div class="panel">
-      <h3><span data-en="Notices">공지사항</span> <a href="#/notice" data-en="More">더보기</a></h3>
+      <h3><span data-en="Notices" data-zh="公告">공지사항</span> <a href="#/notice" data-en="More" data-zh="更多">더보기</a></h3>
       <ul class="news" id="homeNews"></ul>
     </div>
     <div class="panel feature">
-      <h3><span data-en="Featured Project">대표 프로젝트</span> <a href="#greenroad" data-en="Details">자세히</a></h3>
+      <h3><span data-en="Featured Project" data-zh="代表项目">대표 프로젝트</span> <a href="#greenroad" data-en="Details" data-zh="详细">자세히</a></h3>
       <img src="images/p30.jpg" alt="MNU Green Road 기본구상 요약 패널">
-      <b data-en="MNU Green Road — Policy Study for a University Town Theme Street">MNU Green Road — 대학촌 테마거리 조성 정책연구</b>
-      <p data-en="A master concept turning the university town at MNU’s back gate into a pedestrian-first street for culture and innovation (2025)">국립목포대 후문 대학촌을 보행 중심의 문화·혁신 거리로 바꾸는 기본구상 (2025)</p>
+      <b data-en="MNU Green Road — Policy Study for a University Town Theme Street" data-zh="MNU Green Road — 大学村主题街道政策研究">MNU Green Road — 대학촌 테마거리 조성 정책연구</b>
+      <p data-en="A master concept turning the university town at MNU’s back gate into a pedestrian-first street for culture and innovation (2025)" data-zh="将国立木浦大学后门大学村打造为步行优先的文化与创新街道的基本构想（2025）">국립목포대 후문 대학촌을 보행 중심의 문화·혁신 거리로 바꾸는 기본구상 (2025)</p>
     </div>
   </div>
 </div></section>
 
 <section class="sec alt" id="home-events"><div class="wrap">
-  <div class="h2"><h2 data-en="Lab Events">연구실 행사</h2><a class="more" href="#/events" data-en="View all">전체보기</a></div>
+  <div class="h2"><h2 data-en="Lab Events" data-zh="研究室活动">연구실 행사</h2><a class="more" href="#/events" data-en="View all" data-zh="查看全部">전체보기</a></div>
   <div class="ev-grid" id="homeEvents"></div>
 </div></section>
 
 <section class="sec" id="about"><div class="wrap">
-  <div class="h2"><h2 data-en="About the Lab">연구실 소개</h2><span>About the Lab</span></div>
-  <p class="lead" data-en="The Urban &amp; Regional Development Lab is led by Professor Sukho Hong in the Urban Planning &amp; Regional Development program at Mokpo National University. We see the city not as a flat plan but as layered space above and below ground, and we study how to create places where people want to stay in Jeollanam-do, a region facing population decline and spatial decay. Students take part in real projects with local governments and universities, learning theory and practice together.">도시·지역개발 연구실은 국립목포대학교 도시계획및지역개발학전공 홍석호 교수가 지도하는 연구실입니다. 도시를 평면이 아닌 지하·지상·공중이 겹쳐진 입체로 바라보고, 인구 감소와 공간 쇠퇴를 겪는 전남 지역에서 사람이 머무르는 공간을 만드는 방법을 연구합니다. 지자체·대학과 함께하는 실제 프로젝트에 연구생이 직접 참여해 이론과 실무를 함께 익힙니다.</p>
+  <div class="h2"><h2 data-en="About the Lab" data-zh="研究室介绍">연구실 소개</h2><span>About the Lab</span></div>
+  <p class="lead" data-en="The Urban &amp; Regional Development Lab is led by Professor Sukho Hong in the Urban Planning &amp; Regional Development program at Mokpo National University. We see the city not as a flat plan but as layered space above and below ground, and we study how to create places where people want to stay in Jeollanam-do, a region facing population decline and spatial decay. Students take part in real projects with local governments and universities, learning theory and practice together." data-zh="城市·区域开发研究室由国立木浦大学城市规划与区域开发专业 Sukho Hong 教授指导。我们不把城市看作平面，而是看作地下、地上与空中相互叠合的立体空间，研究如何在面临人口减少与空间衰退的全罗南道营造让人愿意停留的空间。学生直接参与与地方政府、大学合作的实际项目，兼顾理论与实践。">도시·지역개발 연구실은 국립목포대학교 도시계획및지역개발학전공 홍석호 교수가 지도하는 연구실입니다. 도시를 평면이 아닌 지하·지상·공중이 겹쳐진 입체로 바라보고, 인구 감소와 공간 쇠퇴를 겪는 전남 지역에서 사람이 머무르는 공간을 만드는 방법을 연구합니다. 지자체·대학과 함께하는 실제 프로젝트에 연구생이 직접 참여해 이론과 실무를 함께 익힙니다.</p>
   <div class="areas">
-    <div class="area"><h3 data-en="Urban Development">도시개발</h3><p data-en="Designation of urban development zones and development plans, redevelopment promotion plans, renewal area guidelines, and reform of urban development law.">도시개발사업 구역 지정과 개발계획, 재정비 촉진계획, 정비구역 가이드라인, 도시개발 관련 법령 정비를 연구합니다.</p></div>
-    <div class="area"><h3 data-en="Regional Development">지역개발</h3><p data-en="Reuse of vacant houses and idle spaces in small towns, regeneration of university towns that benefit both campus and community, and theme streets built on historic and cultural assets.">소도시의 빈집과 폐·유휴공간 재활용, 대학과 지역이 상생하는 대학촌 재생, 역사문화자원을 활용한 특화거리를 다룹니다.</p></div>
-    <div class="area"><h3 data-en="3D Urban Planning">입체도시</h3><p data-en="Planning systems that use one parcel of land on multiple levels, including overlapping-use zones, privately funded station buildings, and resolving long-unexecuted urban planning facilities.">중복이용구역, 민자역사, 장기미집행 도시계획시설 해소 등 하나의 땅을 여러 층위로 쓰는 입체도시계획 제도를 연구합니다.</p></div>
+    <div class="area"><h3 data-en="Urban Development" data-zh="城市开发">도시개발</h3><p data-en="Designation of urban development zones and development plans, redevelopment promotion plans, renewal area guidelines, and reform of urban development law." data-zh="城市开发区的指定与开发计划、再开发促进计划、更新地区指南，以及城市开发相关法律制度的改进。">도시개발사업 구역 지정과 개발계획, 재정비 촉진계획, 정비구역 가이드라인, 도시개발 관련 법령 정비를 연구합니다.</p></div>
+    <div class="area"><h3 data-en="Regional Development" data-zh="区域开发">지역개발</h3><p data-en="Reuse of vacant houses and idle spaces in small towns, regeneration of university towns that benefit both campus and community, and theme streets built on historic and cultural assets." data-zh="小城镇空置房屋与闲置空间的再利用、校园与社区共赢的大学村再生，以及依托历史文化资源的主题街道。">소도시의 빈집과 폐·유휴공간 재활용, 대학과 지역이 상생하는 대학촌 재생, 역사문화자원을 활용한 특화거리를 다룹니다.</p></div>
+    <div class="area"><h3 data-en="3D Urban Planning" data-zh="立体城市规划">입체도시</h3><p data-en="Planning systems that use one parcel of land on multiple levels, including overlapping-use zones, privately funded station buildings, and resolving long-unexecuted urban planning facilities." data-zh="立体利用同一地块的规划制度，包括复合用途地区、民资车站建筑，以及长期未实施城市规划设施的解决。">중복이용구역, 민자역사, 장기미집행 도시계획시설 해소 등 하나의 땅을 여러 층위로 쓰는 입체도시계획 제도를 연구합니다.</p></div>
   </div>
 </div></section>
 
 <section class="sec alt" id="professor"><div class="wrap">
-  <div class="h2"><h2 data-en="Professor">지도교수</h2><span>Professor</span></div>
+  <div class="h2"><h2 data-en="Professor" data-zh="指导教授">지도교수</h2><span>Professor</span></div>
   <div class="prof">
     <div class="photo has-img"><img src="images/prof-hong.webp" alt="홍석호 교수"></div>
     <div>
-      <h3 class="pname"><span data-en="Sukho Hong">홍석호</span><small data-en="홍석호 · Associate Professor">Sukho Hong · 부교수</small></h3>
-      <p class="pfield" data-en="Urban Development · Regional Development · 3D Urban Planning">도시개발 · 지역개발 · 입체도시</p>
+      <h3 class="pname"><span data-en="Sukho Hong">홍석호</span><small data-en="홍석호 · Associate Professor" data-zh="홍석호 · 副教授">Sukho Hong · 부교수</small></h3>
+      <p class="pfield" data-en="Urban Development · Regional Development · 3D Urban Planning" data-zh="城市开发 · 区域开发 · 立体城市">도시개발 · 지역개발 · 입체도시</p>
       <table class="info">
-        <tr><th data-en="Affiliation">소속</th><td data-en="Division of Urban Planning &amp; Landscape Architecture,<br>Urban Planning &amp; Regional Development Major">도시계획및조경학부 도시계획및지역개발학전공<br>(도시및지역개발학과)</td></tr>
-        <tr><th data-en="Email">이메일</th><td><a href="mailto:sukhohong@mnu.ac.kr">sukhohong@mnu.ac.kr</a></td></tr>
-        <tr><th data-en="Phone">전화</th><td><a href="tel:061-450-2224">061-450-2224</a></td></tr>
-        <tr><th data-en="Office">교수실</th><td data-en="Room 4173, Social Sciences Building (A8)">사회과학관(A8) 4173호</td></tr>
+        <tr><th data-en="Affiliation" data-zh="所属">소속</th><td data-en="Division of Urban Planning &amp; Landscape Architecture,<br>Urban Planning &amp; Regional Development Major" data-zh="城市规划与景观学部<br>城市规划与区域开发专业">도시계획및조경학부 도시계획및지역개발학전공<br>(도시및지역개발학과)</td></tr>
+        <tr><th data-en="Email" data-zh="电子邮箱">이메일</th><td><a href="mailto:sukhohong@mnu.ac.kr">sukhohong@mnu.ac.kr</a></td></tr>
+        <tr><th data-en="Phone" data-zh="电话">전화</th><td><a href="tel:061-450-2224">061-450-2224</a></td></tr>
+        <tr><th data-en="Office" data-zh="办公室">교수실</th><td data-en="Room 4173, Social Sciences Building (A8)" data-zh="社会科学馆（A8）4173室">사회과학관(A8) 4173호</td></tr>
       </table>
       <p class="bio" id="profBio"></p>
       <div class="tabs" role="tablist">
-        <button role="tab" aria-selected="true" aria-controls="t-edu" id="b-edu" data-en="Education">학력</button>
-        <button role="tab" aria-selected="false" aria-controls="t-career" id="b-career" data-en="Career">경력</button>
-        <button role="tab" aria-selected="false" aria-controls="t-award" id="b-award" data-en="Awards &amp; Service">수상·활동</button>
+        <button role="tab" aria-selected="true" aria-controls="t-edu" id="b-edu" data-en="Education" data-zh="学历">학력</button>
+        <button role="tab" aria-selected="false" aria-controls="t-career" id="b-career" data-en="Career" data-zh="经历">경력</button>
+        <button role="tab" aria-selected="false" aria-controls="t-award" id="b-award" data-en="Awards &amp; Service" data-zh="获奖·活动">수상·활동</button>
       </div>
       <ol class="tl" role="tabpanel" id="t-edu" aria-labelledby="b-edu"></ol>
       <ol class="tl" role="tabpanel" id="t-career" aria-labelledby="b-career" hidden></ol>
@@ -399,70 +402,70 @@ footer a{color:var(--foot-ink)}
 </div></section>
 
 <section class="sec" id="members"><div class="wrap">
-  <div class="h2"><h2 data-en="Members">구성원</h2><span>Members</span></div>
+  <div class="h2"><h2 data-en="Members" data-zh="成员">구성원</h2><span>Members</span></div>
   <div id="memberGroups"></div>
-  <p class="note" data-en="Photos, research interests and contact details will be added soon.">사진, 연구분야, 연락처는 추후 추가됩니다.</p>
+  <p class="note" data-en="Photos, research interests and contact details will be added soon." data-zh="照片、研究方向及联系方式将陆续补充。">사진, 연구분야, 연락처는 추후 추가됩니다.</p>
 </div></section>
 
 <section class="sec alt" id="greenroad"><div class="wrap">
-  <div class="h2"><h2 data-en="Featured Project">대표 프로젝트</h2><span>Featured Project</span></div>
+  <div class="h2"><h2 data-en="Featured Project" data-zh="代表项目">대표 프로젝트</h2><span>Featured Project</span></div>
   <div class="gr-head">
     <div>
       <h3>MNU Green Road</h3>
-      <p class="meta" data-en="Policy study and implementation plan for a university town theme street · Oct 2025 · Glocal University Promotion Team, Campus Landmark Project (Phase 2) · PI: Sukho Hong">대학촌 테마거리 조성을 위한 정책연구 및 용역 추진 계획 · 2025.10 · 글로컬대학추진단 캠퍼스 명소화 사업(2단계) · 연구책임 홍석호</p>
-      <blockquote data-en="An open campus road where art becomes everyday life, ideas are tested, and the green energy of youth comes alive">예술이 일상이 되고, 아이디어가 실험되며, 청년의 푸른 에너지가 생동하는 열린 캠퍼스 로드</blockquote>
+      <p class="meta" data-en="Policy study and implementation plan for a university town theme street · Oct 2025 · Glocal University Promotion Team, Campus Landmark Project (Phase 2) · PI: Sukho Hong" data-zh="大学村主题街道政策研究及实施方案 · 2025年10月 · 全球化大学推进团 校园地标项目（第二期）· 负责人：Sukho Hong">대학촌 테마거리 조성을 위한 정책연구 및 용역 추진 계획 · 2025.10 · 글로컬대학추진단 캠퍼스 명소화 사업(2단계) · 연구책임 홍석호</p>
+      <blockquote data-en="An open campus road where art becomes everyday life, ideas are tested, and the green energy of youth comes alive" data-zh="艺术融入日常、创意得以实践、青年绿色活力焕发的开放校园之路">예술이 일상이 되고, 아이디어가 실험되며, 청년의 푸른 에너지가 생동하는 열린 캠퍼스 로드</blockquote>
       <ul>
-        <li data-en="Site: the university town at MNU’s back gate, Cheonggye-myeon, Muan-gun (a street of about 290 m and its surroundings)">대상지: 전남 무안군 청계면 국립목포대학교 후문 대학촌 일대(약 290m 가로 및 인접 영향권)</li>
-        <li data-en="Issues: no visible university-town identity, narrow sidewalks (about 1.0 m) with level changes, few places to stay, and poor night lighting">현장 문제: 대학촌 정체성의 부재, 좁은 보도(약 1.0m)와 단차, 머물 공간 부족, 어두운 야간 경관</li>
-        <li data-en="Strategies: traffic calming and sidewalk widening (1.25 m or more), undergrounding power lines, a green landscape network, a symbol sculpture and media pole, and four-party governance of residents, government and university">계획 방향: 교통정온화와 보도 확장(1.25m 이상), 전선 지중화, 그린 네트워크 조경, 상징 조형물·미디어폴, 민·관·학 4자 거버넌스</li>
-        <li data-en="Team: joint research with the Departments of Tourism, Business, and Art &amp; Design, with lab students as research assistants">참여: 관광학과·경영학부·아트디자인학부 공동연구, 연구실 연구생 연구보조</li>
+        <li data-en="Site: the university town at MNU’s back gate, Cheonggye-myeon, Muan-gun (a street of about 290 m and its surroundings)" data-zh="对象地：务安郡清溪面国立木浦大学后门大学村（约290米街道及周边）">대상지: 전남 무안군 청계면 국립목포대학교 후문 대학촌 일대(약 290m 가로 및 인접 영향권)</li>
+        <li data-en="Issues: no visible university-town identity, narrow sidewalks (about 1.0 m) with level changes, few places to stay, and poor night lighting" data-zh="问题：大学村特色不明显，人行道狭窄（约1.0米）且有高差，缺少停留空间，夜间照明不足">현장 문제: 대학촌 정체성의 부재, 좁은 보도(약 1.0m)와 단차, 머물 공간 부족, 어두운 야간 경관</li>
+        <li data-en="Strategies: traffic calming and sidewalk widening (1.25 m or more), undergrounding power lines, a green landscape network, a symbol sculpture and media pole, and four-party governance of residents, government and university" data-zh="策略：交通稳静化与人行道拓宽（1.25米以上）、电线入地、绿色景观网络、标志雕塑与媒体杆，以及居民、政府与大学参与的四方协同治理">계획 방향: 교통정온화와 보도 확장(1.25m 이상), 전선 지중화, 그린 네트워크 조경, 상징 조형물·미디어폴, 민·관·학 4자 거버넌스</li>
+        <li data-en="Team: joint research with the Departments of Tourism, Business, and Art &amp; Design, with lab students as research assistants" data-zh="团队：与观光学科、经营学科、美术设计学科联合研究，研究室学生担任研究助理">참여: 관광학과·경영학부·아트디자인학부 공동연구, 연구실 연구생 연구보조</li>
       </ul>
     </div>
     <div class="zones">
-      <div class="zone"><b>Campus Archive Road</b><span data-en="Back-gate entrance. A book café, study booths and reading benches drawing on the university’s history and knowledge">후문 진입부. 대학의 역사와 지적 자산을 담은 북카페, 스터디 부스, 리딩 벤치</span></div>
-      <div class="zone"><b>Youth Street Artist Alley</b><span data-en="Commercial core. A street gallery, busking stage, graffiti wall and art flea market">상권 중심부. 거리 갤러리, 버스킹 스테이지, 그래피티 월, 아트 프리마켓</span></div>
-      <div class="zone"><b>Culture Innovation Street</b><span data-en="Idle lots and plaza. Modular pop-up stores, youth start-up booths and an idea lab">유휴부지·광장. 모듈형 팝업 스토어, 청년 창업 부스, 아이디어 랩</span></div>
+      <div class="zone"><b>Campus Archive Road</b><span data-en="Back-gate entrance. A book café, study booths and reading benches drawing on the university’s history and knowledge" data-zh="后门入口：结合大学历史与知识的书咖、学习亭与阅读长椅">후문 진입부. 대학의 역사와 지적 자산을 담은 북카페, 스터디 부스, 리딩 벤치</span></div>
+      <div class="zone"><b>Youth Street Artist Alley</b><span data-en="Commercial core. A street gallery, busking stage, graffiti wall and art flea market" data-zh="商业核心区：街头画廊、街头表演舞台、涂鸦墙与艺术跳蚤市场">상권 중심부. 거리 갤러리, 버스킹 스테이지, 그래피티 월, 아트 프리마켓</span></div>
+      <div class="zone"><b>Culture Innovation Street</b><span data-en="Idle lots and plaza. Modular pop-up stores, youth start-up booths and an idea lab" data-zh="闲置地块与广场：模块化快闪店、青年创业亭与创意实验室">유휴부지·광장. 모듈형 팝업 스토어, 청년 창업 부스, 아이디어 랩</span></div>
     </div>
   </div>
   <div class="gallery" id="gallery">
-    <figure class="wide"><button data-cap="MNU Green Road 기본구상" data-cap-en="MNU Green Road master concept"><img src="images/p30.jpg" alt="MNU Green Road 기본구상 패널"></button><figcaption data-en="MNU Green Road master concept">MNU Green Road 기본구상</figcaption></figure>
-    <figure><button data-cap="기본계획 배치도" data-cap-en="Master plan layout"><img src="images/p31.jpg" alt="기본계획 배치도"></button><figcaption data-en="Master plan layout">기본계획 배치도</figcaption></figure>
-    <figure><button data-cap="공간계획" data-cap-en="Spatial plan"><img src="images/p29.jpg" alt="공간계획 다이어그램"></button><figcaption data-en="Spatial plan">공간계획</figcaption></figure>
-    <figure><button data-cap="Campus Archive Road 컨셉" data-cap-en="Campus Archive Road concept"><img src="images/p23.jpg" alt="Campus Archive Road 컨셉 일러스트"></button><figcaption data-en="Campus Archive Road concept">Campus Archive Road 컨셉</figcaption></figure>
-    <figure><button data-cap="대상지 현황" data-cap-en="Existing site conditions"><img src="images/p6.jpg" alt="대상지 현황 사진"></button><figcaption data-en="Existing site conditions">대상지 현황</figcaption></figure>
-  <figure><button data-cap="대상지 위치: 국립목포대학교 후문 대학촌" data-cap-en="Site location: university town at MNU’s back gate"><img src="images/p2.jpg" alt="대상지 위치 위성사진"></button><figcaption data-en="Site location">대상지 위치</figcaption></figure>
+    <figure class="wide"><button data-cap="MNU Green Road 기본구상" data-cap-en="MNU Green Road master concept" data-cap-zh="MNU Green Road 基本构想"><img src="images/p30.jpg" alt="MNU Green Road 기본구상 패널"></button><figcaption data-en="MNU Green Road master concept" data-zh="MNU Green Road 基本构想">MNU Green Road 기본구상</figcaption></figure>
+    <figure><button data-cap="기본계획 배치도" data-cap-en="Master plan layout" data-cap-zh="基本规划总平面图"><img src="images/p31.jpg" alt="기본계획 배치도"></button><figcaption data-en="Master plan layout" data-zh="基本规划总平面图">기본계획 배치도</figcaption></figure>
+    <figure><button data-cap="공간계획" data-cap-en="Spatial plan" data-cap-zh="空间规划"><img src="images/p29.jpg" alt="공간계획 다이어그램"></button><figcaption data-en="Spatial plan" data-zh="空间规划">공간계획</figcaption></figure>
+    <figure><button data-cap="Campus Archive Road 컨셉" data-cap-en="Campus Archive Road concept" data-cap-zh="Campus Archive Road 概念"><img src="images/p23.jpg" alt="Campus Archive Road 컨셉 일러스트"></button><figcaption data-en="Campus Archive Road concept" data-zh="Campus Archive Road 概念">Campus Archive Road 컨셉</figcaption></figure>
+    <figure><button data-cap="대상지 현황" data-cap-en="Existing site conditions" data-cap-zh="对象地现状"><img src="images/p6.jpg" alt="대상지 현황 사진"></button><figcaption data-en="Existing site conditions" data-zh="对象地现状">대상지 현황</figcaption></figure>
+  <figure><button data-cap="대상지 위치: 국립목포대학교 후문 대학촌" data-cap-en="Site location: university town at MNU’s back gate" data-cap-zh="对象地位置：国立木浦大学后门大学村"><img src="images/p2.jpg" alt="대상지 위치 위성사진"></button><figcaption data-en="Site location" data-zh="对象地位置">대상지 위치</figcaption></figure>
   </div>
 </div></section>
 
 <section class="sec" id="projects"><div class="wrap">
-  <div class="h2"><h2 data-en="Projects">연구실적</h2><span>Projects</span></div>
+  <div class="h2"><h2 data-en="Projects" data-zh="研究业绩">연구실적</h2><span>Projects</span></div>
   <div class="filter" role="group" aria-label="분야별 보기">
-    <button aria-pressed="true" data-f="all" data-en="All">전체</button>
-    <button aria-pressed="false" data-f="dev" data-en="Urban Development">도시개발·정비</button>
-    <button aria-pressed="false" data-f="reg" data-en="Regional &amp; Cultural">지역·문화</button>
-    <button aria-pressed="false" data-f="des" data-en="Design">설계·디자인</button>
+    <button aria-pressed="true" data-f="all" data-en="All" data-zh="全部">전체</button>
+    <button aria-pressed="false" data-f="dev" data-en="Urban Development" data-zh="城市开发">도시개발·정비</button>
+    <button aria-pressed="false" data-f="reg" data-en="Regional &amp; Cultural" data-zh="区域·文化">지역·문화</button>
+    <button aria-pressed="false" data-f="des" data-en="Design" data-zh="设计">설계·디자인</button>
   </div>
-  <div class="tablewrap"><table class="list"><thead><tr><th data-en="Period">기간</th><th data-en="Project">과제명</th><th data-en="Field">분야</th></tr></thead><tbody id="projBody"></tbody></table></div>
+  <div class="tablewrap"><table class="list"><thead><tr><th data-en="Period" data-zh="期间">기간</th><th data-en="Project" data-zh="项目名称">과제명</th><th data-en="Field" data-zh="领域">분야</th></tr></thead><tbody id="projBody"></tbody></table></div>
 </div></section>
 
 <section class="sec alt" id="publications"><div class="wrap">
-  <div class="h2"><h2 data-en="Publications">논문·저서</h2><span>Publications</span></div>
-  <div class="tablewrap"><table class="list"><thead><tr><th data-en="Year">연도</th><th data-en="Title">제목</th><th data-en="Authors · Venue">저자 · 게재지</th></tr></thead><tbody id="pubBody"></tbody></table></div>
+  <div class="h2"><h2 data-en="Publications" data-zh="论文·著作">논문·저서</h2><span>Publications</span></div>
+  <div class="tablewrap"><table class="list"><thead><tr><th data-en="Year" data-zh="年份">연도</th><th data-en="Title" data-zh="题目">제목</th><th data-en="Authors · Venue" data-zh="作者 · 期刊">저자 · 게재지</th></tr></thead><tbody id="pubBody"></tbody></table></div>
 </div></section>
 
 
 
 <section class="sec" id="press"><div class="wrap">
-  <div class="h2"><h2 data-en="Press &amp; Links">언론보도 · 관련 링크</h2><span>Press &amp; Links</span></div>
+  <div class="h2"><h2 data-en="Press &amp; Links" data-zh="媒体报道·相关链接">언론보도 · 관련 링크</h2><span>Press &amp; Links</span></div>
   <div class="links" id="pressLinks"></div>
 </div></section>
 
 <section class="sec alt" id="contact"><div class="wrap">
-  <div class="h2"><h2 data-en="Contact">찾아오시는 길</h2><span>Contact</span></div>
+  <div class="h2"><h2 data-en="Contact" data-zh="联系方式">찾아오시는 길</h2><span>Contact</span></div>
   <div class="visit">
-    <div class="panel"><h3 data-en="Lab">연구실</h3><p data-en="Room 4182, Social Sciences Building (A8)">사회과학관(A8) 4182호</p><p style="color:var(--muted);font-size:14px" data-en="Prof. Sukho Hong’s lab">홍석호 교수 연구실</p></div>
-    <div class="panel"><h3 data-en="Office &amp; Department">교수실 · 학과사무실</h3><p data-en="Professor’s office: Room 4173, Social Sciences Building (A8)">교수실: 사회과학관(A8) 4173호</p><p data-en="Department office: Social Sciences Building (A8)">학과사무실: 사회과학관(A8)</p></div>
-    <div class="panel"><h3 data-en="Address">주소</h3><p data-en="1666 Yeongsan-ro, Cheonggye-myeon, Muan-gun, Jeollanam-do 58554, Korea">(58554) 전남 무안군 청계면 영산로 1666</p><p data-en="Mokpo National University, Dorim Campus">국립목포대학교 도림캠퍼스</p><p><a href="mailto:sukhohong@mnu.ac.kr" style="color:var(--blue)">sukhohong@mnu.ac.kr</a></p></div>
+    <div class="panel"><h3 data-en="Lab" data-zh="研究室">연구실</h3><p data-en="Room 4182, Social Sciences Building (A8)" data-zh="社会科学馆（A8）4182室">사회과학관(A8) 4182호</p><p style="color:var(--muted);font-size:14px" data-en="Prof. Sukho Hong’s lab" data-zh="Sukho Hong 教授研究室">홍석호 교수 연구실</p></div>
+    <div class="panel"><h3 data-en="Office &amp; Department" data-zh="教授办公室 · 学科办公室">교수실 · 학과사무실</h3><p data-en="Professor’s office: Room 4173, Social Sciences Building (A8)" data-zh="教授办公室：社会科学馆（A8）4173室">교수실: 사회과학관(A8) 4173호</p><p data-en="Department office: Social Sciences Building (A8)" data-zh="学科办公室：社会科学馆（A8）">학과사무실: 사회과학관(A8)</p></div>
+    <div class="panel"><h3 data-en="Address" data-zh="地址">주소</h3><p data-en="1666 Yeongsan-ro, Cheonggye-myeon, Muan-gun, Jeollanam-do 58554, Korea" data-zh="韩国全罗南道务安郡清溪面荣山路1666（邮编58554）">(58554) 전남 무안군 청계면 영산로 1666</p><p data-en="Mokpo National University, Dorim Campus" data-zh="国立木浦大学 道林校区">국립목포대학교 도림캠퍼스</p><p><a href="mailto:sukhohong@mnu.ac.kr" style="color:var(--blue)">sukhohong@mnu.ac.kr</a></p></div>
   </div>
 </div></section>
 </div>
@@ -470,11 +473,11 @@ footer a{color:var(--foot-ink)}
 </main>
 
 <footer><div class="wrap">
-  <div data-en="<b>Urban &amp;amp; Regional Development Lab, Mokpo National University</b><br>Room 4182, Social Sciences Building (A8), 1666 Yeongsan-ro, Cheonggye-myeon, Muan-gun, Jeollanam-do 58554, Korea"><b>국립목포대학교 도시계획및지역개발학전공 도시·지역개발 연구실</b><br>(58554) 전남 무안군 청계면 영산로 1666 사회과학관(A8) 4182호</div>
-  <div>COPYRIGHT © MOKPO NATIONAL UNIVERSITY. ALL RIGHTS RESERVED.<br><a href="https://mnuurd.mokpo.ac.kr/sites/mnuurd/index.do" target="_blank" rel="noopener" data-en="Visit the department website">학과 홈페이지 바로가기</a></div>
+  <div data-en="<b>Urban &amp;amp; Regional Development Lab, Mokpo National University</b><br>Room 4182, Social Sciences Building (A8), 1666 Yeongsan-ro, Cheonggye-myeon, Muan-gun, Jeollanam-do 58554, Korea" data-zh="<b>国立木浦大学 城市·区域开发研究室</b><br>韩国全罗南道务安郡清溪面荣山路1666（58554）社会科学馆（A8）4182室"><b>국립목포대학교 도시계획및지역개발학전공 도시·지역개발 연구실</b><br>(58554) 전남 무안군 청계면 영산로 1666 사회과학관(A8) 4182호</div>
+  <div>COPYRIGHT © MOKPO NATIONAL UNIVERSITY. ALL RIGHTS RESERVED.<br><a href="https://mnuurd.mokpo.ac.kr/sites/mnuurd/index.do" target="_blank" rel="noopener" data-en="Visit the department website" data-zh="访问学科主页">학과 홈페이지 바로가기</a></div>
 </div></footer>
 
-<dialog id="lightbox"><button id="lbClose" data-en="Close">닫기</button><img id="lbImg" alt=""><p id="lbCap"></p></dialog>
+<dialog id="lightbox"><button id="lbClose" data-en="Close" data-zh="关闭">닫기</button><img id="lbImg" alt=""><p id="lbCap"></p></dialog>
 
 <script src="app.js"></script>
 </body>

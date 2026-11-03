@@ -3,25 +3,29 @@
     "name": "한광재",
     "group": "phd_researcher",
     "role": "박사",
-    "role_en": "Ph.D."
+    "role_en": "Ph.D.",
+    "role_zh": "博士"
   },
   {
     "name": "원종선",
     "group": "phd_researcher",
     "role": "박사",
-    "role_en": "Ph.D."
+    "role_en": "Ph.D.",
+    "role_zh": "博士"
   },
   {
     "name": "김희영",
     "group": "phd_researcher",
     "role": "박사",
-    "role_en": "Ph.D."
+    "role_en": "Ph.D.",
+    "role_zh": "博士"
   },
   {
     "name": "최종원",
     "group": "phd_researcher",
     "role": "박사",
-    "role_en": "Ph.D."
+    "role_en": "Ph.D.",
+    "role_zh": "博士"
   },
   {
     "name": "양희정",
@@ -30,7 +34,9 @@
     "note": "MNU Green Road 정책연구 연구보조원",
     "photo": "/images/img7931.jpeg",
     "role_en": "Researcher · Master’s student",
-    "note_en": "Research assistant, MNU Green Road policy study"
+    "role_zh": "研究员 · 硕士研究生",
+    "note_en": "Research assistant, MNU Green Road policy study",
+    "note_zh": "MNU Green Road 政策研究 研究助理"
   },
   {
     "name": "윤도여",
@@ -39,36 +45,43 @@
     "note": "MNU Green Road 정책연구 연구보조원",
     "photo": "/images/yoon-doyeo.webp",
     "role_en": "Undergraduate",
-    "note_en": "Research assistant, MNU Green Road policy study"
+    "role_zh": "本科在读",
+    "note_en": "Research assistant, MNU Green Road policy study",
+    "note_zh": "MNU Green Road 政策研究 研究助理"
   },
   {
     "name": "김승채",
     "group": "ug",
     "role": "학사과정",
-    "role_en": "Undergraduate"
+    "role_en": "Undergraduate",
+    "role_zh": "本科在读"
   },
   {
     "name": "이건주",
     "group": "ug",
     "role": "학사과정",
-    "role_en": "Undergraduate"
+    "role_en": "Undergraduate",
+    "role_zh": "本科在读"
   },
   {
     "name": "김태윤",
     "group": "ug",
     "role": "학사과정",
-    "role_en": "Undergraduate"
+    "role_en": "Undergraduate",
+    "role_zh": "本科在读"
   },
   {
     "name": "이원빈",
     "group": "ug",
     "role": "학사과정",
-    "role_en": "Undergraduate"
+    "role_en": "Undergraduate",
+    "role_zh": "本科在读"
   },
   {
     "name": "이예은",
     "group": "ug",
     "role": "학사과정",
-    "role_en": "Undergraduate"
+    "role_en": "Undergraduate",
+    "role_zh": "本科在读"
   }
 ]

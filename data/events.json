@@ -4,10 +4,13 @@
     "date": "2025.10",
     "title": "MNU Green Road 대상지 현장조사",
     "title_en": "MNU Green Road site survey",
+    "title_zh": "MNU Green Road 对象地现场调查",
     "place": "국립목포대학교 후문 대학촌",
     "place_en": "University town at MNU’s back gate",
+    "place_zh": "国立木浦大学后门大学村",
     "desc": "대학촌 테마거리 정책연구를 위해 대상지의 보행환경, 가로시설물, 야간 경관 등을 조사했습니다.",
     "desc_en": "For the theme street policy study, we surveyed the site's walking environment, street furniture and night lighting.",
+    "desc_zh": "为开展主题街道政策研究，我们调查了对象地的步行环境、街道设施及夜间景观。",
     "photos": [
       "/images/p6.jpg"
     ]
@@ -17,10 +20,12 @@
     "date": "2023.11",
     "title": "한국생태환경건축학회 추계학술발표대회 학술상 수상",
     "title_en": "KIEAE Autumn Conference – Academic Award",
+    "title_zh": "韩国生态环境建筑学会秋季学术发表大会 学术奖",
     "place": "",
     "place_en": "",
     "desc": "홍석호 교수가 2023 한국생태환경건축학회 추계학술발표대회에서 학술상을 받았습니다. 생태적 산지전용 연구 등 실무와 연계한 도시·건축 연구로 생태도시 조성에 기여한 공로를 인정받았습니다.",
     "desc_en": "Prof. Sukho Hong received the Academic Award at the 2023 KIEAE Autumn Conference, recognized for practice-linked urban and architectural research, including work on ecological forest land conversion, that contributes to ecological city development.",
+    "desc_zh": "Sukho Hong 教授在2023年韩国生态环境建筑学会秋季学术发表大会上荣获学术奖，以表彰其通过生态型山地转用等与实务相结合的城市·建筑研究，为生态城市建设作出的贡献。",
     "photos": []
   }
 ]

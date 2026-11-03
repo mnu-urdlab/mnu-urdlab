@@ -8,13 +8,16 @@ const asset=p=>{p=String(p||"");return p.startsWith("/")&&!p.startsWith("//")?p.
 const arr=v=>Array.isArray(v)?v.filter(Boolean):(v?[v]:[]);
 let L="ko",curFilter="all";
 let SD={notices:[],events:[],resources:[],publications:[],projects:[],members:[],professor:{},press:[]};
-const pick=(o,k)=>L==="en"&&o&&o[k+"_en"]?o[k+"_en"]:((o&&o[k])||"");
+/* 중국어(zh)는 _zh 칸 → 없으면 _en 칸 → 없으면 한국어 순서로 보여 줍니다. */
+const pick=(o,k)=>{if(!o)return "";if(L==="zh"&&o[k+"_zh"])return o[k+"_zh"];if(L!=="ko"&&o[k+"_en"])return o[k+"_en"];return o[k]||""};
 
 const UI={
   ko:{now:"현재",go:"바로가기",tags:{dev:"도시개발·정비",reg:"지역·문화",des:"설계·디자인"},caps:["MNU Green Road 기본계획 배치도","MNU Green Road 공간계획","대상지: 국립목포대학교 후문 대학촌"],pause:"슬라이드 정지",play:"슬라이드 재생",btn:"English",title:"도시·지역개발 연구실 | 국립목포대학교 도시계획및지역개발학전공",
-      groups:{phd_researcher:"박사 연구원",researcher:"연구원",phd:"박사과정",ms:"석사과정",ug:"학부연구생",alumni:"졸업생"},loading:"불러오는 중…",loadErr:"내용을 불러오지 못했습니다. 잠시 후 새로고침해 주세요."},
+      groups:{phd_researcher:"박사 연구원",researcher:"연구원",phd:"박사과정",ms:"석사과정",ug:"학부연구생",alumni:"졸업생"},loading:"불러오는 중…",loadErr:"내용을 불러오지 못했습니다. 잠시 후 새로고침해 주세요.",zoom:"사진 크게 보기"},
   en:{now:"Current",go:"Open",tags:{dev:"Urban Development",reg:"Regional & Cultural",des:"Design"},caps:["MNU Green Road master plan layout","MNU Green Road spatial plan","Site: university town at MNU’s back gate"],pause:"Pause slideshow",play:"Play slideshow",btn:"한국어",title:"Urban & Regional Development Lab | Mokpo National University",
-      groups:{phd_researcher:"Postdoctoral Researchers",researcher:"Researchers",phd:"Ph.D. Students",ms:"Master’s Students",ug:"Undergraduate Researchers",alumni:"Alumni"},loading:"Loading…",loadErr:"Could not load content. Please refresh in a moment."}
+      groups:{phd_researcher:"Postdoctoral Researchers",researcher:"Researchers",phd:"Ph.D. Students",ms:"Master’s Students",ug:"Undergraduate Researchers",alumni:"Alumni"},loading:"Loading…",loadErr:"Could not load content. Please refresh in a moment.",zoom:"photo"},
+  zh:{now:"现任",go:"前往",tags:{dev:"城市开发",reg:"区域·文化",des:"设计"},caps:["MNU Green Road 基本规划总平面图","MNU Green Road 空间规划","对象地：国立木浦大学后门大学村"],pause:"暂停轮播",play:"播放轮播",btn:"中文",title:"城市·区域开发研究室 | 国立木浦大学",
+      groups:{phd_researcher:"博士研究员",researcher:"研究员",phd:"博士研究生",ms:"硕士研究生",ug:"本科生研究员",alumni:"毕业生"},loading:"加载中…",loadErr:"内容加载失败，请稍后刷新页面。",zoom:"查看大图"}
 };
 const GROUP_ORDER=["phd_researcher","researcher","phd","ms","ug","alumni"];
 
@@ -29,7 +32,7 @@ function renderData(){
   proj(curFilter);
   $("#pubBody").innerHTML=[...SD.publications].sort((a,b)=>String(b.year||"").localeCompare(String(a.year||""))).map(p=>{const a=pick(p,"authors"),v=pick(p,"venue");return `<tr><td class="d">${esc(p.year||"—")}</td><td>${esc(pick(p,"title"))}</td><td>${hl(a)}${a&&v?" · ":""}${esc(v)}</td></tr>`}).join("");
   const groups=GROUP_ORDER.map(g=>[g,SD.members.filter(m=>m.group===g)]).filter(([,l])=>l.length);
-  $("#memberGroups").innerHTML=groups.map(([g,list])=>`<div class="mgroup"><h3>${esc(UI[L].groups[g])}</h3><div class="members">${list.map(m=>{const n=pick(m,"name"),ph=asset(m.photo);return `<div class="member">${ph?`<button type="button" class="avatar has-photo" data-src="${esc(ph)}" data-name="${esc(n)}" aria-label="${esc(n)} ${L==="en"?"photo":"사진 크게 보기"}"><img src="${esc(ph)}" alt=""></button>`:`<div class="avatar">${esc((m.name||"")[0]||"")}</div>`}<div><b>${esc(n)}</b><span>${esc(pick(m,"role"))}</span>${pick(m,"note")?`<span>${esc(pick(m,"note"))}</span>`:''}${m.email?`<span><a href="mailto:${esc(m.email)}">${esc(m.email)}</a></span>`:''}</div></div>`}).join("")}</div></div>`).join("");
+  $("#memberGroups").innerHTML=groups.map(([g,list])=>`<div class="mgroup"><h3>${esc(UI[L].groups[g])}</h3><div class="members">${list.map(m=>{const n=pick(m,"name"),ph=asset(m.photo);return `<div class="member">${ph?`<button type="button" class="avatar has-photo" data-src="${esc(ph)}" data-name="${esc(n)}" aria-label="${esc(n)} ${UI[L].zoom}"><img src="${esc(ph)}" alt=""></button>`:`<div class="avatar">${esc((m.name||"")[0]||"")}</div>`}<div><b>${esc(n)}</b><span>${esc(pick(m,"role"))}</span>${pick(m,"note")?`<span>${esc(pick(m,"note"))}</span>`:''}${m.email?`<span><a href="mailto:${esc(m.email)}">${esc(m.email)}</a></span>`:''}</div></div>`}).join("")}</div></div>`).join("");
   $("#pressLinks").innerHTML=SD.press.map(p=>`<a href="${esc(p.url)}" target="_blank" rel="noopener"><small>${esc(pick(p,"source"))}</small><b>${esc(pick(p,"title"))}</b><span>${UI[L].go}</span></a>`).join("");
 }
 document.querySelectorAll('[role="tab"]').forEach(b=>b.addEventListener("click",()=>{
@@ -49,7 +52,7 @@ pb.addEventListener("click",()=>{playing=!playing;setBtn();start()});
 /* ---------- 사진 크게 보기 ---------- */
 const lb=$("#lightbox");
 function openLB(src,cap){$("#lbImg").src=src;$("#lbImg").alt=cap;$("#lbCap").textContent=cap;lb.showModal()}
-document.querySelectorAll("#gallery button").forEach(b=>b.addEventListener("click",()=>openLB(b.querySelector("img").src,L==="en"?b.dataset.capEn:b.dataset.cap)));
+document.querySelectorAll("#gallery button").forEach(b=>b.addEventListener("click",()=>openLB(b.querySelector("img").src,L==="zh"?(b.dataset.capZh||b.dataset.capEn):L==="en"?b.dataset.capEn:b.dataset.cap)));
 $("#lbClose").addEventListener("click",()=>lb.close());
 $("#memberGroups").addEventListener("click",e=>{const b=e.target.closest(".has-photo");if(b)openLB(b.dataset.src,b.dataset.name)});
 lb.addEventListener("click",e=>{if(e.target===lb)lb.close()});
@@ -59,7 +62,9 @@ const BUI={
   ko:{home:"홈",board:"게시판",notice:"공지사항",events:"연구실 행사",resources:"자료실",total:"총",items:"건",search:"검색어 입력",no:"번호",cat:"분류",title:"제목",date:"작성일",reg:"등록일",get:"받기",pin:"공지",empty:"등록된 글이 없습니다.",noresult:"검색 결과가 없습니다.",list:"목록",prev:"이전글",next:"다음글",none:"없음",files:"첨부파일",link:"관련 링크 바로가기",photos:"장",all:"전체",download:"다운로드",open:"바로가기",evEmpty:"등록된 행사가 없습니다.",place:"장소",notfound:"게시글을 찾을 수 없습니다.",
       cats:{"공지":"공지","소식":"소식","링크":"링크","양식":"양식","발표자료":"발표자료","참고자료":"참고자료","연구자료":"연구자료"}},
   en:{home:"Home",board:"Board",notice:"Notices",events:"Lab Events",resources:"Resources",total:"Total",items:"",search:"Search",no:"No.",cat:"Type",title:"Title",date:"Date",reg:"Date",get:"File",pin:"Notice",empty:"No posts yet.",noresult:"No results found.",list:"Back to list",prev:"Previous",next:"Next",none:"None",files:"Attachments",link:"Open related link",photos:"photos",all:"All",download:"Download",open:"Open",evEmpty:"No events yet.",place:"Place",notfound:"Post not found.",
-      cats:{"공지":"Notice","소식":"News","링크":"Link","양식":"Form","발표자료":"Slides","참고자료":"Reference","연구자료":"Research"}}
+      cats:{"공지":"Notice","소식":"News","링크":"Link","양식":"Form","발표자료":"Slides","참고자료":"Reference","연구자료":"Research"}},
+  zh:{home:"首页",board:"公告栏",notice:"公告",events:"研究室活动",resources:"资料室",total:"共",items:"条",search:"输入搜索词",no:"编号",cat:"分类",title:"标题",date:"日期",reg:"登记日期",get:"下载",pin:"置顶",empty:"暂无内容。",noresult:"没有搜索结果。",list:"返回列表",prev:"上一篇",next:"下一篇",none:"无",files:"附件",link:"查看相关链接",photos:"张",all:"全部",download:"下载",open:"前往",evEmpty:"暂无活动。",place:"地点",notfound:"找不到该文章。",
+      cats:{"공지":"公告","소식":"新闻","링크":"链接","양식":"表格","발표자료":"演示资料","참고자료":"参考资料","연구자료":"研究资料"}}
 };
 const bt=k=>BUI[L][k];
 const catName=c=>BUI[L].cats[c]||c||"";
@@ -175,14 +180,14 @@ const i18nEls=[...document.querySelectorAll("[data-en]")];
 i18nEls.forEach(el=>el.dataset.ko=el.innerHTML);
 function setLang(l){
   L=l;
-  document.documentElement.lang=l;document.title=UI[l].title;
-  i18nEls.forEach(el=>el.innerHTML=l==="en"?el.dataset.en:el.dataset.ko);
-  const lbtn=$("#langBtn");lbtn.textContent=UI[l].btn;lbtn.lang=l==="en"?"ko":"en";
+  document.documentElement.lang=l==="zh"?"zh-Hans":l;document.title=UI[l].title;
+  i18nEls.forEach(el=>el.innerHTML=l==="zh"?(el.dataset.zh||el.dataset.en):l==="en"?el.dataset.en:el.dataset.ko);
+  document.querySelectorAll("#langs button").forEach(b=>b.setAttribute("aria-pressed",b.dataset.l===l));
   renderData();route();$("#slideCap").textContent=UI[l].caps[si];setBtn();
   try{localStorage.setItem("lab-lang",l)}catch(e){}
-  try{const u=new URL(location.href);if(l==="en")u.searchParams.set("lang","en");else u.searchParams.delete("lang");history.replaceState(null,"",u)}catch(e){}
+  try{const u=new URL(location.href);if(l!=="ko")u.searchParams.set("lang",l);else u.searchParams.delete("lang");history.replaceState(null,"",u)}catch(e){}
 }
-$("#langBtn").addEventListener("click",()=>setLang(L==="en"?"ko":"en"));
+document.querySelectorAll("#langs button").forEach(b=>b.addEventListener("click",()=>setLang(b.dataset.l)));
 
 /* ---------- 모바일 메뉴 ---------- */
 const mb=$(".menu-btn"),g=$("#gnb");
@@ -200,7 +205,7 @@ async function loadData(){
   return out;
 }
 let initial="ko";
-try{const q=new URLSearchParams(location.search).get("lang");if(q==="en"||q==="ko")initial=q;else if(localStorage.getItem("lab-lang")==="en")initial="en"}catch(e){}
+try{const q=new URLSearchParams(location.search).get("lang"),s=localStorage.getItem("lab-lang");if(UI[q])initial=q;else if(UI[s])initial=s}catch(e){}
 window.addEventListener("hashchange",route);
 loadData().then(d=>{
   for(const k of FILES){if(d[k]!=null)SD[k]=k==="professor"?(d[k]||{}):(Array.isArray(d[k])?d[k]:[])}
