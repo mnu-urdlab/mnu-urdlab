@@ -1,4 +1,4 @@
-/* ===== 도시·지역개발 연구실 홈페이지 =====
+/* ===== MNU 도시 공간 연구실 홈페이지 =====
    내용(공지·행사·자료·논문·구성원 등)은 data/*.json 에 있고, Pages CMS 관리 화면에서 수정합니다. */
 const $=s=>document.querySelector(s);
 const esc=s=>String(s??"").replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
@@ -12,11 +12,11 @@ let SD={notices:[],events:[],resources:[],publications:[],projects:[],members:[]
 const pick=(o,k)=>{if(!o)return "";if(L==="zh"&&o[k+"_zh"])return o[k+"_zh"];if(L!=="ko"&&o[k+"_en"])return o[k+"_en"];return o[k]||""};
 
 const UI={
-  ko:{now:"현재",go:"바로가기",tags:{dev:"도시개발·정비",reg:"지역·문화",des:"설계·디자인"},caps:["MNU Green Road 기본계획 배치도","MNU Green Road 공간계획","대상지: 국립목포대학교 후문 대학촌"],pause:"슬라이드 정지",play:"슬라이드 재생",btn:"English",title:"도시·지역개발 연구실 | 국립목포대학교 도시계획및지역개발학전공",
+  ko:{now:"현재",go:"바로가기",tags:{dev:"도시개발·정비",reg:"지역·문화",des:"설계·디자인"},caps:["MNU Green Road 기본계획 배치도","MNU Green Road 공간계획","대상지: 국립목포대학교 후문 대학촌"],pause:"슬라이드 정지",play:"슬라이드 재생",btn:"English",title:"MNU 도시 공간 연구실 | 국립목포대학교 도시계획및지역개발학전공",
       groups:{phd_researcher:"박사 연구원",researcher:"연구원",phd:"박사과정",ms:"석사과정",ug:"학부연구생",alumni:"졸업생"},loading:"불러오는 중…",loadErr:"내용을 불러오지 못했습니다. 잠시 후 새로고침해 주세요.",zoom:"사진 크게 보기"},
-  en:{now:"Current",go:"Open",tags:{dev:"Urban Development",reg:"Regional & Cultural",des:"Design"},caps:["MNU Green Road master plan layout","MNU Green Road spatial plan","Site: university town at MNU’s back gate"],pause:"Pause slideshow",play:"Play slideshow",btn:"한국어",title:"Urban & Regional Development Lab | Mokpo National University",
+  en:{now:"Current",go:"Open",tags:{dev:"Urban Development",reg:"Regional & Cultural",des:"Design"},caps:["MNU Green Road master plan layout","MNU Green Road spatial plan","Site: university town at MNU’s back gate"],pause:"Pause slideshow",play:"Play slideshow",btn:"한국어",title:"MNU Urban Space Lab | Mokpo National University",
       groups:{phd_researcher:"Postdoctoral Researchers",researcher:"Researchers",phd:"Ph.D. Students",ms:"Master’s Students",ug:"Undergraduate Researchers",alumni:"Alumni"},loading:"Loading…",loadErr:"Could not load content. Please refresh in a moment.",zoom:"photo"},
-  zh:{now:"现任",go:"前往",tags:{dev:"城市开发",reg:"区域·文化",des:"设计"},caps:["MNU Green Road 基本规划总平面图","MNU Green Road 空间规划","对象地：国立木浦大学后门大学村"],pause:"暂停轮播",play:"播放轮播",btn:"中文",title:"城市·区域开发研究室 | 国立木浦大学",
+  zh:{now:"现任",go:"前往",tags:{dev:"城市开发",reg:"区域·文化",des:"设计"},caps:["MNU Green Road 基本规划总平面图","MNU Green Road 空间规划","对象地：国立木浦大学后门大学村"],pause:"暂停轮播",play:"播放轮播",btn:"中文",title:"MNU 城市空间研究室 | 国立木浦大学",
       groups:{phd_researcher:"博士研究员",researcher:"研究员",phd:"博士研究生",ms:"硕士研究生",ug:"本科生研究员",alumni:"毕业生"},loading:"加载中…",loadErr:"内容加载失败，请稍后刷新页面。",zoom:"查看大图"}
 };
 const GROUP_ORDER=["phd_researcher","researcher","phd","ms","ug","alumni"];

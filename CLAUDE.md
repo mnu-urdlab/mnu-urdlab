@@ -1,6 +1,6 @@
 # CLAUDE.md — 연구실 홈페이지 작업 규칙
 
-국립목포대학교 도시·지역개발 연구실(지도교수 홍석호) 홈페이지 저장소입니다. GitHub Pages로 배포됩니다.
+국립목포대학교 MNU 도시 공간 연구실(지도교수 홍석호) 홈페이지 저장소입니다. GitHub Pages로 배포됩니다.
 
 - 홈페이지: https://mnu-urdlab.github.io/mnu-urdlab/ (끝의 `/mnu-urdlab/`까지 필요)
 - 관리 화면(Pages CMS): https://app.pagescms.org
