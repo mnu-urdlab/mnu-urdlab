@@ -111,7 +111,8 @@ function viewNotice(){
   $("#nQ").addEventListener("input",e=>{BS.nq=e.target.value;BS.np=1;noticeList()});
   noticeList();
 }
-const paras=s=>esc(s).split(/\n\s*\n/).map(p=>`<p>${p.replace(/\n/g,"<br>")}</p>`).join("");
+const linkify=s=>s.replace(/https?:\/\/[^\s<]+/g,u=>`<a href="${u}" target="_blank" rel="noopener">${u}</a>`);
+const paras=s=>esc(s).split(/\n\s*\n/).map(p=>`<p>${linkify(p).replace(/\n/g,"<br>")}</p>`).join("");
 const navRow=(lab,p,k)=>`<li><span>${lab}</span>${p?`<a href="#/${k}/${encodeURIComponent(p._id)}">${esc(pick(p,"title"))}</a>`:`<span>${bt("none")}</span>`}</li>`;
 function viewNoticeDetail(id){
   const list=notices();const i=list.findIndex(n=>n._id===id);
